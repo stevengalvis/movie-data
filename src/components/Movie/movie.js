@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 
 const Movie = () => (
   <div>
-    {/*search component should go here */}
     <h1>Movie Data</h1>
     <div>
       <h2>Movie Title</h2>
