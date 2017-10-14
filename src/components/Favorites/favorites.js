@@ -1,9 +1,9 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
 const Favorites = () => (
-  {/*search component should go here */}
-    {/*break this into smaller components */}
+  // search component should go here
+  // break this into smaller components
   <div>
     <h1>Your Favorites</h1>
     <ul>
@@ -17,4 +17,6 @@ const Favorites = () => (
       </li>
     </ul>
   </div>
-)
+);
+
+export default Favorites;
