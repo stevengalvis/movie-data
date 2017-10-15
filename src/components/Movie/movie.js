@@ -1,26 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
 // TODO: Break this up into smaller components
 
-const Movie = () => (
-  <div>
-    <h1>Movie Data</h1>
-    <div>
-      <h2>Movie Title</h2>
-      <img>Image of Movie</img>
-      <p>Movie description</p>
+class Movie extends Component {
+  render() {
+    console.log(this.props.movie);
+    return (
       <div>
-        <ul>
-          <li>Movie Rating</li>
-          <li>Movie Release Date</li>
-          <li>Movie Budget</li>
-          <li>Movie Length</li>
-        </ul>
+        <h1>Movie Data</h1>
+        <div>
+          <h2>{this.props.movie.title}</h2>
+          <h3>{this.props.movie.tagLine}</h3>
+          <img src={this.props.movie.posterImg} />
+          <p>{this.props.movie.overview}</p>
+          <div>
+            <ul>
+              <li>{this.props.movie.budget}</li>
+              <li>{this.props.movie.voteAverage}</li>
+              <li>{this.props.movie.budget}</li>
+              <li>{this.props.movie.revenue}</li>
+              <li>{this.props.movie.popularity}</li>
+              <li>{this.props.movie.runtime}</li>
+              <li>{this.props.movie.runtime}</li>
+            </ul>
+          </div>
+          <button>Add to favorites</button>
+        </div>
       </div>
-      <button>Add to favorites</button>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
-export default Movie;
+const mapStateToProps = state => ({
+  movie: state.movie
+});
+
+export default connect(mapStateToProps)(Movie);

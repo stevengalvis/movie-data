@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const Home = () => (
   <div>
@@ -16,7 +16,9 @@ const Home = () => (
     </div>
     <form>
       Sign up
-      <button>Get Started</button>
+      <button>
+        <Link to="/movie">Get Started</Link>
+      </button>
     </form>
     <footer>Made by Steven Galvis</footer>
   </div>

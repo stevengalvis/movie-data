@@ -11,7 +11,7 @@ const initialState = {
   popularity: 29.924913,
   voteAverage: 7.3,
   posterImg: "https://image.tmdb.org/t/p/w500/t90Y3G8UGQp0f0DrP60wRu9gfrH.jpg",
-  backdropImg: "https://image.tmdb.org/t/p/w500//rFtsE7Lhlc2jRWF7SRAU0fvrveQ.jpg"
+  backdropImg: "https://image.tmdb.org/t/p/w500//rFtsE7Lhlc2jRWF7SRAU0fvrveQ.jpg",
   genres: ["Action", "Adventure", "Science Fiction"]
 };
 
