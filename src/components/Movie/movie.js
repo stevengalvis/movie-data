@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 // TODO: Break this up into smaller components
 
@@ -25,7 +26,7 @@ class Movie extends Component {
               <li>{this.props.movie.runtime}</li>
             </ul>
           </div>
-          <button>Add to favorites</button>
+          <Link to={"/favorites"}>See Favorites</Link>
         </div>
       </div>
     );
