@@ -13,7 +13,7 @@ class Movie extends Component {
         <div>
           <h2>{this.props.movie.title}</h2>
           <h3>{this.props.movie.tagLine}</h3>
-          <img src={this.props.movie.posterImg} />
+          <img src={this.props.movie.posterImg} alt="" />
           <p>{this.props.movie.overview}</p>
           <div>
             <ul>

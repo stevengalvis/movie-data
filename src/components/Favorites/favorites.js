@@ -9,7 +9,7 @@ const Favorites = props => {
     <li key={index}>
       <div>
         <h3>{movie.title}</h3>
-        <img src={movie.posterImg} />
+        <img src={movie.posterImg} alt="" />
       </div>
       <button className>Delete</button>
     </li>

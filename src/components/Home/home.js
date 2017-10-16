@@ -6,7 +6,7 @@ const Home = () => (
     {/*search component should go here */}
     <h1>Movie Data</h1>
     <h2>fun movie analytics</h2>
-    <img />
+    <img alt="" />
     <div>
       <ul>
         <li>Icon 1</li>
