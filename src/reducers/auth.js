@@ -8,7 +8,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case "SET_AUTH_TOKEN":
-      return Object.asisgn({}, state, {
+      return Object.assign({}, state, {
         authToken: action.authToken
       });
 

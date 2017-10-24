@@ -10,7 +10,6 @@ const LandingPage = props => {
   return (
     <div>
       {/*search component should go here */}
-      <h1>Movie Data</h1>
       <h2>fun movie analytics</h2>
       <img alt="" />
       <div>
