@@ -10,7 +10,7 @@
 /build
 .netlify
 
-config.js
+.config.js
 
 # misc
 .DS_Store
