@@ -5,6 +5,7 @@ import LandingPage from "./components/Landing-Page/landing-page";
 import Movie from "./components/Movie/movie";
 import Favorites from "./components/Favorites/favorites";
 import Register from "./components/Registration/registration-form";
+import SearchBox from "./components/Search-Box/search-box";
 import { refreshAuthToken } from "./actions/auth";
 
 class App extends Component {
@@ -50,6 +51,7 @@ class App extends Component {
           <header className="App-header">
             <h1 className="App-title">Movie Data</h1>
           </header>
+          <SearchBox />
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/movie" component={Movie} />
           <Route exact path="/favorites" component={Favorites} />
