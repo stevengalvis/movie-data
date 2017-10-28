@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Spinner from "react-spinkit";
 import { searchMovies } from "../../actions/search";
 
-class SearchBox extends React.Component {
+export class SearchBox extends React.Component {
   renderResults() {
     if (this.props.loading) {
       return <Spinner spinnerName="circle" noFadeIn />;
