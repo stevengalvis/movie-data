@@ -2,11 +2,14 @@ import {
   UPDATE_INPUT_VALUE,
   UPDATE_SUGGESTIONS,
   CLEAR_SUGGESTIONS,
-  LOAD_SUGGESTIONS_ERROR
+  LOAD_SUGGESTIONS_ERROR,
+  LOAD_SUGGESTIONS_BEGIN,
+  UPDATE_MOVIES
 } from "../actions/autosuggest";
 
 const initialState = {
   value: "",
+  movies: [],
   suggestions: [],
   isLoading: false,
   error: null
@@ -31,6 +34,12 @@ const autoSuggestReducer = (state = initialState, action) => {
         isLoading: true
       });
 
+    case UPDATE_MOVIES:
+      return Object.assign({
+        state,
+        movies: action.movies
+      });
+
     case UPDATE_SUGGESTIONS:
       if (action.value !== state.value) {
         return Object.assign({
@@ -53,3 +62,5 @@ const autoSuggestReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default autoSuggestReducer;

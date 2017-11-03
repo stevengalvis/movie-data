@@ -18,6 +18,7 @@ export class SearchBox extends React.Component {
   }
 
   search(e) {
+    console.log(this);
     e.preventDefault();
     if (this.input.value.trim() === "") {
       return;

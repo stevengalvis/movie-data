@@ -1,9 +1,13 @@
 import { search } from "../movies";
+
 export const UPDATE_INPUT_VALUE = "UPDATE_INPUT_VALUE";
-export const updateInputValue = value => ({
-  type: UPDATE_INPUT_VALUE,
-  value
-});
+export const updateInputValue = value => {
+  console.log(value + "action");
+  return {
+    type: UPDATE_INPUT_VALUE,
+    value
+  };
+};
 
 export const CLEAR_SUGGESTIONS = "CLEAR_SUGGESTIONS";
 export const clearSuggestions = () => ({
@@ -17,6 +21,12 @@ export const updateSuggestions = (suggestions, value) => ({
   value
 });
 
+export const UPDATE_MOVIES = "UPDATE_MOVIES";
+export const updateMovies = movies => ({
+  type: UPDATE_MOVIES,
+  movies
+});
+
 export const LOAD_SUGGESTIONS_BEGIN = "LOAD_SUGGESTIONS_BEGIN";
 export const loadSuggestionsBegin = () => ({
   type: LOAD_SUGGESTIONS_BEGIN
@@ -28,8 +38,8 @@ export const loadSuggestionsError = error => ({
   error
 });
 
-export const loadSuggestions = value => dispatch => {
+export const loadMovies = value => dispatch => {
   search(value)
-    .then(movies => dispatch(updateSuggestions(movies, value)))
+    .then(movies => dispatch(updateMovies(movies)))
     .catch(error => dispatch(loadSuggestionsError(error)));
 };
