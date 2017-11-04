@@ -10,10 +10,17 @@ import {
 } from "../../actions/autosuggest";
 
 export class Suggestions extends React.Component {
+  constructor() {
+    super();
+    this.onChange = this.onChange.bind(this);
+    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
+    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
+    this.getSuggestions = this.getSuggestions.bind(this);
+  }
   onSuggestionsFetchRequested({ value }) {
     return this.props
       .dispatch(loadMovies(value))
-      .then(() => this.props.dispatch(updateSuggestions(this.getSuggestions(value))));
+      .then(() => this.props.dispatch(updateSuggestions(this.getSuggestions(value), value)));
   }
 
   onSuggestionsClearRequested() {
@@ -22,9 +29,6 @@ export class Suggestions extends React.Component {
 
   onChange(event, { newValue }) {
     event.preventDefault();
-    console.log(this);
-    console.log(newValue + " onChange");
-
     this.props.dispatch(updateInputValue(newValue));
   }
 
@@ -68,5 +72,31 @@ const mapStateToProps = state => ({
   isLoading: state.autosuggest.isLoading,
   error: state.autosuggest.error
 });
+//
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onSuggestionsFetchRequested({ value }) {
+//       return this.props.dispatch(loadMovies(value)).then(() => dispatch(updateSuggestions(this.getSuggestions(value))));
+//     },
+//
+//     onSuggestionsClearRequested() {
+//       dispatch(clearSuggestions());
+//     },
+//
+//     onChange(event, { newValue }) {
+//       event.preventDefault();
+//       dispatch(updateInputValue(newValue));
+//     },
+//
+//     getSuggestions(value) {
+//       const inputValue = value.trim().toLowerCase();
+//       const inputLength = inputValue.length;
+//
+//       return inputLength === 0
+//         ? []
+//         : this.props.movies.filter(suggestion => suggestion.toLowerCase().slice(0, inputLength) === inputValue);
+//     }
+//   };
+// };
 
 export default connect(mapStateToProps)(Suggestions);

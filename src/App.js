@@ -5,6 +5,7 @@ import LandingPage from "./components/Landing-Page/landing-page";
 import Movie from "./components/Movie/movie";
 import Favorites from "./components/Favorites/favorites";
 import Register from "./components/Registration/registration-form";
+import LoginForm from "./components/Login/login-form";
 import SearchBox from "./components/Search-Box/search-box";
 import Suggestions from "./components/AutoSuggest/autosuggest";
 import { refreshAuthToken } from "./actions/auth";
@@ -57,6 +58,7 @@ class App extends Component {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/movie" component={Movie} />
           <Route exact path="/favorites" component={Favorites} />
+          <Route exact path="/login" component={LoginForm} />
           <Route exact path="/register" component={Register} />
         </div>
       </Router>
