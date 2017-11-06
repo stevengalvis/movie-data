@@ -1,13 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import Autosuggest from "react-autosuggest";
-import {
-  loadSuggestions,
-  loadMovies,
-  clearSuggestions,
-  updateInputValue,
-  updateSuggestions
-} from "../../actions/autosuggest";
+import { search } from "../../movies";
+import { loadMovies, clearSuggestions, updateInputValue, updateSuggestions } from "../../actions/autosuggest";
 
 export class Suggestions extends React.Component {
   constructor() {
@@ -16,11 +11,17 @@ export class Suggestions extends React.Component {
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
+    this.loadSuggestions = this.loadSuggestions.bind(this);
   }
+
+  loadSuggestions(value) {
+    return this.props.dispatch(loadMovies(value)).then(movies => {
+      this.props.dispatch(updateSuggestions(this.getSuggestions(value, movies), value));
+    });
+  }
+
   onSuggestionsFetchRequested({ value }) {
-    return this.props
-      .dispatch(loadMovies(value))
-      .then(() => this.props.dispatch(updateSuggestions(this.getSuggestions(value), value)));
+    this.loadSuggestions(value);
   }
 
   onSuggestionsClearRequested() {
@@ -28,17 +29,16 @@ export class Suggestions extends React.Component {
   }
 
   onChange(event, { newValue }) {
-    event.preventDefault();
     this.props.dispatch(updateInputValue(newValue));
   }
 
-  getSuggestions = value => {
+  getSuggestions = (value, movies) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
     return inputLength === 0
       ? []
-      : this.props.movies.filter(suggestion => suggestion.toLowerCase().slice(0, inputLength) === inputValue);
+      : movies.filter(suggestion => suggestion.toLowerCase().slice(0, inputLength) === inputValue);
   };
 
   getSuggestionValue = suggestion => suggestion;
@@ -72,31 +72,5 @@ const mapStateToProps = state => ({
   isLoading: state.autosuggest.isLoading,
   error: state.autosuggest.error
 });
-//
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onSuggestionsFetchRequested({ value }) {
-//       return this.props.dispatch(loadMovies(value)).then(() => dispatch(updateSuggestions(this.getSuggestions(value))));
-//     },
-//
-//     onSuggestionsClearRequested() {
-//       dispatch(clearSuggestions());
-//     },
-//
-//     onChange(event, { newValue }) {
-//       event.preventDefault();
-//       dispatch(updateInputValue(newValue));
-//     },
-//
-//     getSuggestions(value) {
-//       const inputValue = value.trim().toLowerCase();
-//       const inputLength = inputValue.length;
-//
-//       return inputLength === 0
-//         ? []
-//         : this.props.movies.filter(suggestion => suggestion.toLowerCase().slice(0, inputLength) === inputValue);
-//     }
-//   };
-// };
 
 export default connect(mapStateToProps)(Suggestions);

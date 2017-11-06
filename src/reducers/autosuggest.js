@@ -47,6 +47,7 @@ const autoSuggestReducer = (state = initialState, action) => {
           isLoading: false
         });
       }
+
       return Object.assign({
         state,
         suggestions: action.suggestions,
