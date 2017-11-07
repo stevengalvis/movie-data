@@ -1,3 +1,5 @@
+import { UPDATE_MOVIE } from "../actions/movie";
+
 const initialState = {
   id: 999861,
   title: "Avengers: Age of Ultron",
@@ -15,8 +17,15 @@ const initialState = {
   genres: ["Action", "Adventure", "Science Fiction"]
 };
 
-const movie = (state = initialState, action) => {
-  return state;
+const movieReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case UPDATE_MOVIE:
+      return Object.assign({}, state, {
+        movie: action.movies
+      });
+    default:
+      return state;
+  }
 };
 
-export default movie;
+export default movieReducer;
