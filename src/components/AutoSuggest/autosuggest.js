@@ -52,10 +52,6 @@ export class Suggestions extends React.Component {
       onChange: this.onChange
     };
 
-    // if (this.props.suggestions.length === 0) {
-    //   return <div>No results found for this movie</div>;
-    // }
-
     return (
       <div>
         <Autosuggest
