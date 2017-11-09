@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Spinner from "react-spinkit";
+import { Link } from "react-router-dom";
 import { searchMovies } from "../../actions/search";
 
 export class SearchBox extends React.Component {
@@ -12,7 +13,11 @@ export class SearchBox extends React.Component {
     if (this.props.error) {
       return <strong>{this.props.error}</strong>;
     }
-    const movies = this.props.movies.map((movie, index) => <li key={index}>{movie}</li>);
+    const movies = this.props.movies.map((movie, index) => (
+      <li key={index}>
+        <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+      </li>
+    ));
 
     return <ul className="movie-search-results">{movies}</ul>;
   }
