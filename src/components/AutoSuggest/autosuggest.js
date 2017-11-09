@@ -10,18 +10,13 @@ export class Suggestions extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
-    this.getSuggestions = this.getSuggestions.bind(this);
-    this.loadSuggestions = this.loadSuggestions.bind(this);
-  }
-
-  loadSuggestions(value) {
-    return this.props.dispatch(loadMovies(value)).then(movies => {
-      this.props.dispatch(updateSuggestions(this.getSuggestions(value, movies), value));
-    });
+    this.getSuggestionValue = this.getSuggestionValue.bind(this);
+    this.renderSuggestion = this.renderSuggestion.bind(this);
+    // this.shouldRenderSuggestions = this.shouldRenderSuggestions.bind(this);
   }
 
   onSuggestionsFetchRequested({ value }) {
-    this.loadSuggestions(value);
+    this.props.dispatch(loadMovies(value));
   }
 
   onSuggestionsClearRequested() {
@@ -32,37 +27,41 @@ export class Suggestions extends React.Component {
     this.props.dispatch(updateInputValue(newValue));
   }
 
-  getSuggestions = (value, movies) => {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
-
-    return inputLength === 0
-      ? []
-      : movies.filter(suggestion => suggestion.toLowerCase().slice(0, inputLength) === inputValue);
+  getSuggestionValue = suggestion => {
+    console.log(suggestion);
+    return suggestion;
   };
-
-  getSuggestionValue = suggestion => suggestion;
-
-  renderSuggestion = suggestion => <div>{suggestion}</div>;
-
+  renderSuggestion = suggestion => {
+    console.log(suggestion);
+    return <span>{suggestion}</span>;
+  };
+  //
+  // shouldRenderSuggestions(value) {
+  //   console.log(value.trim());
+  //   return value.trim().length > 2;
+  // }
   render() {
+    const { value, suggestions } = this.props;
+    console.log(value);
+    // const value = "f";
+    // const suggestions = ["F", "F/X", "F/X2", "Fandango", "F for Fake", "Fögi Is a Bastard", "f/8"];
+    console.log(suggestions);
     const inputProps = {
       placeholder: "Search for a movie",
-      value: this.props.value,
+      value,
       onChange: this.onChange
     };
 
     return (
-      <div>
-        <Autosuggest
-          suggestions={this.props.suggestions}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          getSuggestionValue={this.getSuggestionValue}
-          renderSuggestion={this.renderSuggestion}
-          inputProps={inputProps}
-        />
-      </div>
+      <Autosuggest
+        suggestions={suggestions}
+        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        getSuggestionValue={this.getSuggestionValue}
+        renderSuggestion={this.renderSuggestion}
+        // shouldRenderSuggestions={this.shouldRenderSuggestions}
+        inputProps={inputProps}
+      />
     );
   }
 }

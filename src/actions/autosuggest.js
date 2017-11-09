@@ -43,6 +43,16 @@ export const loadSuggestionsError = error => ({
 
 export const loadMovies = value => dispatch => {
   return search(value)
-    .then(movies => movies)
+    .then(movies => dispatch(getSuggestions(value, movies)))
     .catch(error => dispatch(loadSuggestionsError(error)));
+};
+
+export const getSuggestions = (value, movies) => dispatch => {
+  const inputValue = value.trim().toLowerCase();
+  const inputLength = inputValue.length;
+
+  const suggestions =
+    inputLength === 0 ? [] : movies.filter(suggestion => suggestion.toLowerCase().slice(0, inputLength) === inputValue);
+
+  dispatch(updateSuggestions(suggestions, value));
 };

@@ -9,7 +9,7 @@ const _search = query => {
       }
       return res.json();
     })
-    .then(data => data.results.map(movie => movie.title));
+    .then(data => data);
 };
 
 export function search(query) {

@@ -41,12 +41,12 @@ const autoSuggestReducer = (state = initialState, action) => {
       });
 
     case UPDATE_SUGGESTIONS:
-      if (action.value !== state.value) {
-        return Object.assign({
-          state,
-          isLoading: false
-        });
-      }
+      // if (action.value !== state.value) {
+      //   return Object.assign({
+      //     state,
+      //     isLoading: false
+      //   });
+      // }
 
       return Object.assign({
         state,

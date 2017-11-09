@@ -54,7 +54,7 @@ class App extends Component {
             <h1 className="App-title">Movie Data</h1>
           </header>
           <SearchBox />
-          <Suggestions />
+
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/movie" component={Movie} />
           <Route exact path="/favorites" component={Favorites} />

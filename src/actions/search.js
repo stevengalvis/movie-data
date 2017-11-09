@@ -14,6 +14,6 @@ export const searchMoviesError = error => ({
 
 export const searchMovies = query => dispatch => {
   search(query)
-    .then(movies => dispatch(searchMoviesSuccess(movies)))
+    .then(movies => dispatch(searchMoviesSuccess(movies.results.map(movie => movie.title))))
     .catch(error => dispatch(searchMoviesError(error)));
 };
