@@ -12,8 +12,32 @@ export const searchMoviesError = error => ({
   error
 });
 
+export const UPDATE_MOVIE_TITLES = "UPDATE_MOVIE_TITLES";
+export const updateMovieTitles = titles => ({
+  type: UPDATE_MOVIE_TITLES,
+  titles
+});
+
+// export const getMovieTitles = movies => dispatch => {
+//   console.log("hello");
+//   const movieTitles = movies.results.map(movie => {
+//     const { title, id } = movie;
+//     return {
+//       title,
+//       id
+//     };
+//   });
+//   console.log(movieTitles);
+//   dispatch(updateMovieTitles(movieTitles));
+// };
+
 export const searchMovies = query => dispatch => {
+  let movies;
   search(query)
-    .then(movies => dispatch(searchMoviesSuccess(movies.results.map(movie => movie))))
+    .then(_movies => {
+      movies = _movies.results.map(movie => movie);
+      dispatch(searchMoviesSuccess(movies));
+    })
+    // .then(() => getMovieTitles(movies))
     .catch(error => dispatch(searchMoviesError(error)));
 };

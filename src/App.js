@@ -56,7 +56,7 @@ class App extends Component {
           <SearchBox />
 
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/movie" component={Movie} />
+          <Route exact path="/movie/:movieId" component={Movie} />
           <Route exact path="/favorites" component={Favorites} />
           <Route exact path="/login" component={LoginForm} />
           <Route exact path="/register" component={Register} />

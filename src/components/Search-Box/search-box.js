@@ -44,7 +44,7 @@ export class SearchBox extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  movies: state.search.titles,
+  movies: state.search.movies,
   loading: state.loading,
   error: state.error
 });

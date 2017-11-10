@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-// TODO: Break this up into smaller components
-
-class Movie extends Component {
+export class Movie extends React.Component {
   render() {
     console.log(this.props.movie);
+
     return (
       <div>
         <h1>Movie Data</h1>
@@ -23,7 +22,6 @@ class Movie extends Component {
               <li>{this.props.movie.revenue}</li>
               <li>{this.props.movie.popularity}</li>
               <li>{this.props.movie.runtime}</li>
-              <li>{this.props.movie.runtime}</li>
             </ul>
           </div>
           <Link to={"/favorites"}>See Favorites</Link>
@@ -33,8 +31,19 @@ class Movie extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  movie: state.movie
-});
+const mapStateToProps = (state, props) => {
+  const movieId = props.match.params.movieId;
+  let movie = {};
+  state.search.movies.map(_movie => {
+    if (_movie.id == movieId) {
+      movie = _movie;
+      console.log(movie);
+    }
+  });
+  return {
+    movieId,
+    movie
+  };
+};
 
 export default connect(mapStateToProps)(Movie);
