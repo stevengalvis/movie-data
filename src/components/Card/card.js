@@ -1,10 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { updateCard } from "../../actions/card";
 
-export class Movie extends React.Component {
+export class Card extends React.Component {
+  componentDidMount() {}
+
+  // movie ID value is not right for returning a movie
+
   render() {
-    console.log(this.props.movie);
+    if (!this.props.match.params.movieId) {
+      this.props.dispatch(updateCard(24428));
+    }
+    this.props.dispatch(updateCard(this.props.movieId));
 
     return (
       <div>
@@ -32,18 +40,21 @@ export class Movie extends React.Component {
 }
 
 const mapStateToProps = (state, props) => {
-  const movieId = props.match.params.movieId;
-  let movie = {};
-  state.search.movies.map(_movie => {
-    if (_movie.id == movieId) {
-      movie = _movie;
-      console.log(movie);
-    }
-  });
   return {
-    movieId,
-    movie
+    movieId: props.match.params.movieId,
+    movie: state.card.movie
   };
+  // let movie = {};
+  // state.search.movies.map(_movie => {
+  //   if (_movie.id == movieId) {
+  //     movie = _movie;
+  //     console.log(movie);
+  //   }
+  // });
+  // return {
+  //   movieId,
+  //   movie
+  // };
 };
 
-export default connect(mapStateToProps)(Movie);
+export default connect(mapStateToProps)(Card);

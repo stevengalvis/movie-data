@@ -1,3 +1,5 @@
+import { RENDER_CARD, RENDER_CARD_ERORR } from "../actions/card";
+
 const initialState = {
   id: 999861,
   title: "Avengers: Age of Ultron",
@@ -12,11 +14,23 @@ const initialState = {
   voteAverage: 7.3,
   posterImg: "https://image.tmdb.org/t/p/w500/t90Y3G8UGQp0f0DrP60wRu9gfrH.jpg",
   backdropImg: "https://image.tmdb.org/t/p/w500//rFtsE7Lhlc2jRWF7SRAU0fvrveQ.jpg",
-  genres: ["Action", "Adventure", "Science Fiction"]
+  genres: ["Action", "Adventure", "Science Fiction"],
+  movie: undefined
 };
 
-const movie = (state = initialState, action) => {
-  return state;
+const cardReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case RENDER_CARD_ERORR:
+      return Object.assign({}, state, {
+        error: action.erorr
+      });
+    case RENDER_CARD:
+      return Object.assign({}, state, {
+        movie: action.movie
+      });
+    default:
+      return state;
+  }
 };
 
-export default movie;
+export default cardReducer;

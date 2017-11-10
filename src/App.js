@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./components/Landing-Page/landing-page";
-import Movie from "./components/Movie/movie";
+import Card from "./components/Card/card";
 import Favorites from "./components/Favorites/favorites";
 import Register from "./components/Registration/registration-form";
 import LoginForm from "./components/Login/login-form";
@@ -56,7 +56,7 @@ class App extends Component {
           <SearchBox />
 
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/movie/:movieId" component={Movie} />
+          <Route exact path="/movie/:movieId" component={Card} />
           <Route exact path="/favorites" component={Favorites} />
           <Route exact path="/login" component={LoginForm} />
           <Route exact path="/register" component={Register} />

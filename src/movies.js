@@ -14,7 +14,7 @@ const _search = query => {
 
 const _getMovie = movieId => {
   return fetch(
-    `https://api.themoviedb.org/3/search/movie/${movieId}?&api_key=${MOVIE_DB_API_KEY}&language=en-US&page=1&include_adult=false`
+    `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${MOVIE_DB_API_KEY}&language=en-US&page=1&include_adult=false`
   )
     .then(res => {
       if (!res.ok) {
