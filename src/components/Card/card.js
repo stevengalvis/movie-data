@@ -1,18 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Spinner from "react-spinkit";
 import { updateCard } from "../../actions/card";
 
 export class Card extends React.Component {
-  componentDidMount() {}
-
-  // movie ID value is not right for returning a movie
+  componentDidMount() {
+    this.props.dispatch(updateCard(this.props.movieId));
+  }
 
   render() {
-    if (!this.props.match.params.movieId) {
-      this.props.dispatch(updateCard(24428));
+    if (!this.props.movie) {
+      return <Spinner spinnerName="circle" noFadeIn />;
     }
-    this.props.dispatch(updateCard(this.props.movieId));
 
     return (
       <div>

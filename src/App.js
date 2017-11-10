@@ -53,9 +53,8 @@ class App extends Component {
           <header className="App-header">
             <h1 className="App-title">Movie Data</h1>
           </header>
-          <SearchBox />
-
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/search" component={SearchBox} />
           <Route exact path="/movie/:movieId" component={Card} />
           <Route exact path="/favorites" component={Favorites} />
           <Route exact path="/login" component={LoginForm} />
