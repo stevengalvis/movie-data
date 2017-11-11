@@ -20,16 +20,15 @@ export class Card extends React.Component {
         <div>
           <h2>{this.props.movie.title}</h2>
           <h3>{this.props.movie.tagLine}</h3>
-          <img src={this.props.movie.posterImg} alt="" />
+          <img src={`https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`} alt="" />
           <p>{this.props.movie.overview}</p>
           <div>
             <ul>
-              <li>{this.props.movie.budget}</li>
-              <li>{this.props.movie.voteAverage}</li>
-              <li>{this.props.movie.budget}</li>
-              <li>{this.props.movie.revenue}</li>
-              <li>{this.props.movie.popularity}</li>
-              <li>{this.props.movie.runtime}</li>
+              <li>Budget: {this.props.movie.budget}</li>
+              <li>Vote Average: {this.props.movie.vote_average}</li>
+              <li>Revenue: {this.props.movie.revenue}</li>
+              <li>Popularity: {this.props.movie.popularity}</li>
+              <li>Minutes: {this.props.movie.runtime}</li>
             </ul>
           </div>
           <Link to={"/favorites"}>See Favorites</Link>
