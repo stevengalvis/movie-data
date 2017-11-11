@@ -9,9 +9,14 @@ export class Card extends React.Component {
     this.props.dispatch(updateCard(this.props.movieId));
   }
 
+  renderGenres() {
+    const genres = this.props.movie.genres.map((genre, index) => <li key={index}>{genre.name}</li>);
+    return <ul className="genres-results">{genres}</ul>;
+  }
+
   render() {
     if (!this.props.movie) {
-      return <Spinner spinnerName="circle" noFadeIn />;
+      return <Spinner spinnername="circle" noFadeIn />;
     }
 
     return (
@@ -29,6 +34,7 @@ export class Card extends React.Component {
               <li>Revenue: {this.props.movie.revenue}</li>
               <li>Popularity: {this.props.movie.popularity}</li>
               <li>Minutes: {this.props.movie.runtime}</li>
+              <li>Genres: {this.renderGenres()}</li>
             </ul>
           </div>
           <Link to={"/favorites"}>See Favorites</Link>
@@ -43,17 +49,6 @@ const mapStateToProps = (state, props) => {
     movieId: props.match.params.movieId,
     movie: state.card.movie
   };
-  // let movie = {};
-  // state.search.movies.map(_movie => {
-  //   if (_movie.id == movieId) {
-  //     movie = _movie;
-  //     console.log(movie);
-  //   }
-  // });
-  // return {
-  //   movieId,
-  //   movie
-  // };
 };
 
 export default connect(mapStateToProps)(Card);
