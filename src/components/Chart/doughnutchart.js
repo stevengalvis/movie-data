@@ -1,8 +1,8 @@
 import React from "react";
-import { Bar, Doughnut } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { connect } from "react-redux";
 
-class Chart extends React.Component {
+class DoughnutChart extends React.Component {
   render() {
     let chartData = {
       labels: ["Average"],
@@ -39,10 +39,9 @@ class Chart extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.card.movie);
   return {
     movie: state.card.movie
   };
 };
 
-export default connect(mapStateToProps)(Chart);
+export default connect(mapStateToProps)(DoughnutChart);

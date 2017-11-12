@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Spinner from "react-spinkit";
-import Chart from "../Chart/chart";
+import DoughnutChart from "../Chart/doughnutchart";
+import BarChart from "../Chart/barchart";
 import { updateCard } from "../../actions/card";
 
 export class Card extends React.Component {
@@ -40,7 +41,8 @@ export class Card extends React.Component {
           </div>
           <Link to={"/favorites"}>See Favorites</Link>
         </div>
-        <Chart />
+        <DoughnutChart />
+        <BarChart />
       </div>
     );
   }
