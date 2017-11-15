@@ -2,9 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 const Favorites = props => {
-  // search component should go here
-  // break this into smaller components
-  // maybe turn this into a class
   const favorites = props.favorites.map((movie, index) => (
     <li key={index}>
       <div>
