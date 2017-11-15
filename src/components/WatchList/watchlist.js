@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const Favorites = props => {
+const WatchList = props => {
   const favorites = props.favorites.map((movie, index) => (
     <li key={index}>
       <div>
@@ -23,4 +23,4 @@ const mapStateToProps = state => ({
   favorites: state.favorites.movies
 });
 
-export default connect(mapStateToProps)(Favorites);
+export default connect(mapStateToProps)(WatchList);

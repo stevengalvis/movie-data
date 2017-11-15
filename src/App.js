@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./components/Landing-Page/landing-page";
 import Card from "./components/Card/card";
-import Favorites from "./components/Favorites/favorites";
+import WatchList from "./components/WatchList/watchlist";
 import Register from "./components/Registration/registration-form";
 import LoginForm from "./components/Login/login-form";
 import SearchBox from "./components/Search-Box/search-box";
@@ -56,7 +56,7 @@ class App extends Component {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/search" component={SearchBox} />
           <Route exact path="/movie/:movieId" component={Card} />
-          <Route exact path="/favorites" component={Favorites} />
+          <Route exact path="/watchlist" component={WatchList} />
           <Route exact path="/login" component={LoginForm} />
           <Route exact path="/register" component={Register} />
         </div>
