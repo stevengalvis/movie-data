@@ -5,15 +5,22 @@ import Spinner from "react-spinkit";
 import DoughnutChart from "../Chart/doughnutchart";
 import BarChart from "../Chart/barchart";
 import { updateCard } from "../../actions/card";
+import { updateSimilarMovies } from "../../actions/card";
+import { addToWatchList } from "../../actions/card";
 
 export class Card extends React.Component {
   componentDidMount() {
     this.props.dispatch(updateCard(this.props.movieId));
+    this.props.dispatch(updateSimilarMovies(this.props.movieId));
   }
 
   renderGenres() {
     const genres = this.props.movie.genres.map((genre, index) => <li key={index}>{genre.name}</li>);
     return <ul className="genres-results">{genres}</ul>;
+  }
+
+  onFavoritesClicked() {
+    addToWatchList(this.props.movie);
   }
 
   render() {
@@ -39,10 +46,12 @@ export class Card extends React.Component {
               <li>Genres: {this.renderGenres()}</li>
             </ul>
           </div>
+          <button onClick={() => this.onFavoritesClicked()}>Add to Favorites</button>
           <Link to={"/favorites"}>See Favorites</Link>
         </div>
         <DoughnutChart />
-        <BarChart />
+        <BarChart type="movieNumbers" />
+        {this.props.isLoading ? <Spinner spinnername="circle" noFadeIn /> : <BarChart type="similarMovies" />}
       </div>
     );
   }
@@ -51,7 +60,9 @@ export class Card extends React.Component {
 const mapStateToProps = (state, props) => {
   return {
     movieId: props.match.params.movieId,
-    movie: state.card.movie
+    movie: state.card.movie,
+    similarMovies: state.card.similarMovies,
+    isLoading: state.card.isLoading
   };
 };
 

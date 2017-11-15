@@ -1,7 +1,9 @@
-import { RENDER_CARD, RENDER_CARD_ERORR } from "../actions/card";
+import { RENDER_CARD, RENDER_CARD_ERORR, RENDER_SIMILAR_MOVIES } from "../actions/card";
 
 const initialState = {
-  movie: undefined
+  movie: undefined,
+  similarMovies: undefined,
+  isLoading: true
 };
 
 const cardReducer = (state = initialState, action) => {
@@ -14,6 +16,12 @@ const cardReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         movie: action.movie
       });
+    case RENDER_SIMILAR_MOVIES:
+      return Object.assign({}, state, {
+        similarMovies: action.movies,
+        isLoading: false
+      });
+
     default:
       return state;
   }
