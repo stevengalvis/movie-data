@@ -4,6 +4,7 @@ import favorites from "./favorites";
 import authReducer from "./auth";
 import { reducer as formReducer } from "redux-form";
 import searchReducer from "./search";
+import watchlistReducer from "./watchlist";
 import autoSuggestReducer from "./autosuggest";
 
 const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   form: formReducer,
   auth: authReducer,
   search: searchReducer,
+  watchlist: watchlistReducer,
   autosuggest: autoSuggestReducer
 });
 

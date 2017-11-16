@@ -22,7 +22,7 @@ export const renderSimilarMovies = movies => {
   };
 };
 
-export const addToWatchList = movie => {
+export const addToWatchlist = movie => {
   const token = localStorage.getItem("authToken");
   return fetch(`${API_BASE_URL}/users/watchlist`, {
     method: "POST",
@@ -34,9 +34,9 @@ export const addToWatchList = movie => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(watchList => {
-      console.log(watchList);
-      return watchList;
+    .then(watchlist => {
+      console.log(watchlist);
+      return watchlist;
     })
     .catch(err => {
       const { message } = err;

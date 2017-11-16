@@ -3,7 +3,8 @@ import { RENDER_CARD, RENDER_CARD_ERORR, RENDER_SIMILAR_MOVIES } from "../action
 const initialState = {
   movie: undefined,
   similarMovies: undefined,
-  isLoading: true
+  isLoading: true,
+  error: undefined
 };
 
 const cardReducer = (state = initialState, action) => {

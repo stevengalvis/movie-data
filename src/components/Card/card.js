@@ -6,7 +6,7 @@ import DoughnutChart from "../Chart/doughnutchart";
 import BarChart from "../Chart/barchart";
 import { updateCard } from "../../actions/card";
 import { updateSimilarMovies } from "../../actions/card";
-import { addToWatchList } from "../../actions/card";
+import { addToWatchlist } from "../../actions/card";
 
 export class Card extends React.Component {
   componentDidMount() {
@@ -20,7 +20,7 @@ export class Card extends React.Component {
   }
 
   onFavoritesClicked() {
-    addToWatchList(this.props.movie);
+    addToWatchlist(this.props.movie);
   }
 
   render() {
@@ -47,7 +47,7 @@ export class Card extends React.Component {
             </ul>
           </div>
           <button onClick={() => this.onFavoritesClicked()}>Add to Favorites</button>
-          <Link to={"/favorites"}>See Favorites</Link>
+          <Link to={"/watchlist"}>See Watchlist</Link>
         </div>
         <DoughnutChart />
         <BarChart type="movieNumbers" />
