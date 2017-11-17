@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from "react-redux";
 import "./App.css";
+import HeaderBar from "./components/Header-Bar/header-bar";
 import LandingPage from "./components/Landing-Page/landing-page";
 import Card from "./components/Card/card";
 import WatchList from "./components/WatchList/watchlist";
@@ -51,6 +53,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
+            <HeaderBar />
             <h1 className="App-title">Movie Data</h1>
           </header>
           <Route exact path="/" component={LandingPage} />
@@ -65,4 +68,9 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(App);

@@ -46,7 +46,7 @@ export class Card extends React.Component {
               <li>Genres: {this.renderGenres()}</li>
             </ul>
           </div>
-          <button onClick={() => this.onFavoritesClicked()}>Add to Favorites</button>
+          <button onClick={() => this.onFavoritesClicked()}>Add to Watchlist</button>
           <Link to={"/watchlist"}>See Watchlist</Link>
         </div>
         <DoughnutChart />
