@@ -1,11 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getWatchlist } from "../../actions/watchlist";
+import { getWatchlist, deleteMovie } from "../../actions/watchlist";
 import Spinner from "react-spinkit";
 
 export class Watchlist extends React.Component {
   componentDidMount() {
     this.props.dispatch(getWatchlist());
+  }
+
+  deleteMovie(movie) {
+    this.props.dispatch(deleteMovie(movie));
   }
 
   getWatchlistMovies() {
@@ -16,7 +20,7 @@ export class Watchlist extends React.Component {
             <h3>{movie.title}</h3>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" />
           </div>
-          <button>Delete</button>
+          <button onClick={() => this.deleteMovie(movie)}>Delete</button>
         </li>
       );
     });
@@ -24,10 +28,9 @@ export class Watchlist extends React.Component {
   }
 
   render() {
-    // if (!this.props.watchlistMovies) {
-    //   return <Spinner spinnername="circle" noFadeIn />;
-    // }
-    console.log(this.props.watchlistMovies);
+    if (this.props.movieDeleted) {
+      this.props.dispatch(getWatchlist());
+    }
     return (
       <div>
         <h1>Your Favorites</h1>
@@ -42,7 +45,8 @@ export class Watchlist extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  watchlistMovies: state.watchlist.watchlistMovies
+  watchlistMovies: state.watchlist.watchlistMovies,
+  movieDeleted: state.watchlist.movieDeleted
 });
 
 export default connect(mapStateToProps)(Watchlist);

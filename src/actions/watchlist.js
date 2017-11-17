@@ -13,6 +13,16 @@ export const renderWatchlistError = error => ({
   error
 });
 
+export const UPDATE_WATCHLIST = "UPDATE_WATCHLIST";
+export const updateWatchlist = () => ({
+  type: UPDATE_WATCHLIST
+});
+
+export const UPDATE_WATCHLIST_ERROR = "UPDATE_WATCHLIST_ERROR";
+export const updateWatchlistError = error => ({
+  type: UPDATE_WATCHLIST_ERROR
+});
+
 export const getWatchlist = () => dispatch => {
   const token = localStorage.getItem("authToken");
   return fetch(`${API_BASE_URL}/users/watchlist`, {
@@ -25,12 +35,31 @@ export const getWatchlist = () => dispatch => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(data => {
-      console.log(data.watchList);
       return dispatch(renderWatchlist(data.watchList));
     })
     .catch(err => {
       const { message } = err;
-
       return dispatch(renderWatchlistError(message));
+    });
+};
+
+export const deleteMovie = movie => dispatch => {
+  const token = localStorage.getItem("authToken");
+  return fetch(`${API_BASE_URL}/users/watchlist`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify(movie)
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(data => {
+      return dispatch(updateWatchlist());
+    })
+    .catch(err => {
+      const { message } = err;
+      return dispatch(updateWatchlistError(message));
     });
 };
