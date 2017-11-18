@@ -18,18 +18,10 @@ export const updateMovieTitles = titles => ({
   titles
 });
 
-// export const getMovieTitles = movies => dispatch => {
-//   console.log("hello");
-//   const movieTitles = movies.results.map(movie => {
-//     const { title, id } = movie;
-//     return {
-//       title,
-//       id
-//     };
-//   });
-//   console.log(movieTitles);
-//   dispatch(updateMovieTitles(movieTitles));
-// };
+export const CLEAR_SEARCH_TITLES = "CLEAR_SEARCH_TITLES";
+export const clearSearchTitles = () => ({
+  type: CLEAR_SEARCH_TITLES
+});
 
 export const searchMovies = query => dispatch => {
   let movies;
@@ -38,6 +30,9 @@ export const searchMovies = query => dispatch => {
       movies = _movies.results.map(movie => movie);
       dispatch(searchMoviesSuccess(movies));
     })
-    // .then(() => getMovieTitles(movies))
     .catch(error => dispatch(searchMoviesError(error)));
+};
+
+export const clearSearch = () => dispatch => {
+  return dispatch(clearSearchTitles());
 };

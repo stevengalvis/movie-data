@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import Spinner from "react-spinkit";
-import { Link } from "react-router-dom";
 import { searchMovies } from "../../actions/search";
 
 export class SearchBox extends React.Component {
+  onMovieClick(movieId) {
+    this.props.history.push(`/movie/${movieId}`);
+  }
+
   renderResults() {
     if (this.props.loading) {
       return <Spinner spinnerName="circle" noFadeIn />;
@@ -13,9 +16,10 @@ export class SearchBox extends React.Component {
     if (this.props.error) {
       return <strong>{this.props.error}</strong>;
     }
-    const movies = this.props.movies.map((movie, index) => (
+
+    let movies = this.props.movies.map((movie, index) => (
       <li key={index}>
-        <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
+        <span onClick={e => this.onMovieClick(movie.id)}>{movie.title}</span>
       </li>
     ));
 
@@ -32,7 +36,7 @@ export class SearchBox extends React.Component {
 
   render() {
     return (
-      <div className="movie-search">
+      <div className="search-box">
         <form onSubmit={e => this.search(e)}>
           <input type="search" ref={input => (this.input = input)} />
           <button>Search</button>

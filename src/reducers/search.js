@@ -1,4 +1,9 @@
-import { SEARCH_MOVIES_SUCCESS, SEARCH_MOVIES_ERROR, UPDATE_MOVIE_TITLES } from "../actions/search";
+import {
+  SEARCH_MOVIES_SUCCESS,
+  SEARCH_MOVIES_ERROR,
+  UPDATE_MOVIE_TITLES,
+  CLEAR_SEARCH_TITLES
+} from "../actions/search";
 
 const initialState = {
   movies: [],
@@ -13,21 +18,13 @@ export default function searchReducer(state = initialState, action) {
         ...state,
         movies: action.movies
       };
-    // return Object.assign({}, state, {
-    //   movies: action.movies,
-    //   titles: action.movies.map(movie => {
-    //     const { title, id } = movie;
-    //     return {
-    //       title,
-    //       id
-    //     };
-    //   })
-    // });
+
     case UPDATE_MOVIE_TITLES:
       console.log(action);
       return Object.assign({}, state, {
         titles: action.titles
       });
+
     case SEARCH_MOVIES_ERROR:
       return Object.assign({}, state, {
         error: action.error
