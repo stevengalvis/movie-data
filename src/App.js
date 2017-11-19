@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
+          <header>
             <HeaderBar />
           </header>
           <Route exact path="/" component={LandingPage} />

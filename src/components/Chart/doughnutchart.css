@@ -1,0 +1,16 @@
+.vote-average-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.vote-average-score {
+  position: absolute;
+  top: 40%;
+  right: 5%;
+  display: inline-block;
+  font-size: 4em;
+  color: #7c7f93;
+}

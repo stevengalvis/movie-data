@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Spinner from "react-spinkit";
 import DoughnutChart from "../Chart/doughnutchart";
 import BarChart from "../Chart/barchart";
+import HorizontalBarChart from "../Chart/horizontalbarchart";
 import { updateCard } from "../../actions/card";
 import { updateSimilarMovies } from "../../actions/card";
 import { addToWatchlist } from "../../actions/card";
@@ -16,12 +17,21 @@ export class Card extends React.Component {
   }
 
   renderGenres() {
-    const genres = this.props.movie.genres.map((genre, index) => <li key={index}>{genre.name}</li>);
+    const genres = this.props.movie.genres.map((genre, index) => (
+      <li key={index}>
+        <span className="genre-value">{genre.name}</span>
+      </li>
+    ));
     return <ul className="genres-results">{genres}</ul>;
   }
 
   onWatchlistClicked() {
     addToWatchlist(this.props.movie);
+  }
+
+  componentDidUpdate() {
+    let backdropImg = "https://image.tmdb.org/t/p/original" + this.props.movie.backdrop_path;
+    document.body.style.backgroundImage = "url(" + backdropImg + ")";
   }
 
   render() {
@@ -30,30 +40,40 @@ export class Card extends React.Component {
     }
 
     return (
-      <div className="card-container">
-        <div className="card-header">
-          <h2>{this.props.movie.title}</h2>
-          <div className="card-poster-image">
-            <img src={`https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`} alt="" />
+      <div className="card-background">
+        <div className="card-container">
+          <div className="card-header">
+            <h2 class="card-title">{this.props.movie.title}</h2>
+            <div className="card-poster-image">
+              <img src={`https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`} alt="" />
+            </div>
           </div>
+          <div className="card-description">
+            <h3 className="card-tagline">{this.props.movie.tagline}</h3>
+            <p>{this.props.movie.overview}</p>
+          </div>
+          <div className="card-info">
+            <ul className="card-info-list">
+              <li>
+                <span className="card-info-title">Release Date:</span>
+                <span className="card-info-value">{this.props.movie.release_date}</span>
+              </li>
+              <li>
+                <span className="card-info-title">Minutes:</span>{" "}
+                <span className="card-info-value">{this.props.movie.runtime}</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <span className="genres-title">Genres:</span> {this.renderGenres()}
+          </div>
+          <button className="add-movie-btn" onClick={() => this.onWatchlistClicked()}>
+            Add to Watchlist
+          </button>
+          <DoughnutChart />
+          <BarChart />
+          {this.props.isLoading ? <Spinner spinnername="circle" noFadeIn /> : <HorizontalBarChart />}
         </div>
-        <div className="card-description">
-          <h3>{this.props.movie.tagline}</h3>
-          <p>{this.props.movie.overview}</p>
-        </div>
-        <div className="card-info">
-          <ul className="card-info-list">
-            <li>Release Date: {this.props.movie.release_date}</li>
-            <li>Minutes: {this.props.movie.runtime}</li>
-            <li>Genres: {this.renderGenres()}</li>
-          </ul>
-        </div>
-        <button className="add-movie-btn" onClick={() => this.onWatchlistClicked()}>
-          Add to Watchlist
-        </button>
-        <DoughnutChart />
-        <BarChart type="movieNumbers" />
-        {this.props.isLoading ? <Spinner spinnername="circle" noFadeIn /> : <BarChart type="similarMovies" />}
       </div>
     );
   }

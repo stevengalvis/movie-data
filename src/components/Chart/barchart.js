@@ -4,41 +4,39 @@ import { connect } from "react-redux";
 
 class BarChart extends React.Component {
   render() {
-    let chartData;
-
-    if (this.props.type == "movieNumbers") {
-      chartData = {
-        labels: ["Budget", "Revenue"],
-        datasets: [
-          {
-            label: "Dollars",
-            data: [this.props.movie.budget, this.props.movie.revenue],
-            backgroundColor: ["#3F51B5", "#64B5F6"]
-          }
-        ]
-      };
-    }
-    if (this.props.type === "similarMovies") {
-      chartData = {
-        labels: this.props.similarMovies.map(movie => movie.title),
-        datasets: [
-          {
-            label: "Vote Average for Similar Movies",
-            data: this.props.similarMovies.map(movie => movie.vote_average),
-            backgroundColor: ["#3F51B5", "#64B5F6"]
-          }
-        ]
-      };
-    }
+    let chartData = {
+      labels: ["Budget", "Revenue"],
+      datasets: [
+        {
+          label: "Dollars",
+          data: [this.props.movie.budget, this.props.movie.revenue],
+          backgroundColor: ["#002E5F", "#007FBF"]
+        }
+      ]
+    };
 
     return (
       <Bar
         data={chartData}
         width={100}
-        height={20}
+        height={50}
         options={{
           title: {
             text: "Movie Numbers"
+          },
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  callback: function(value, index, values) {
+                    if (value <= 10) {
+                      return value;
+                    }
+                    return `$` + value;
+                  }
+                }
+              }
+            ]
           },
           maintainAspectRatio: true,
           legend: {
