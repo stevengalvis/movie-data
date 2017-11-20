@@ -50,7 +50,7 @@ export class Card extends React.Component {
           </div>
           <div className="card-description">
             <h3 className="card-tagline">{this.props.movie.tagline}</h3>
-            <p>{this.props.movie.overview}</p>
+            <p class="card-description">{this.props.movie.overview}</p>
           </div>
           <div className="card-info">
             <ul className="card-info-list">
@@ -71,8 +71,8 @@ export class Card extends React.Component {
             Add to Watchlist
           </button>
           <DoughnutChart />
-          <BarChart />
           {this.props.isLoading ? <Spinner spinnername="circle" noFadeIn /> : <HorizontalBarChart />}
+          <BarChart />
         </div>
       </div>
     );

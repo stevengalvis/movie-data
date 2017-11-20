@@ -8,9 +8,9 @@ class HorizontalBarChart extends React.Component {
       labels: this.props.similarMovies.map(movie => movie.title),
       datasets: [
         {
-          label: "Vote Average for Similar Movies",
+          label: "Vote Average",
           data: this.props.similarMovies.map(movie => movie.vote_average),
-          backgroundColor: ["#03256C", "#2541B2", "#1768AC", "#08A4BD", "blue"]
+          backgroundColor: ["#00a896", "#00a896", "#00a896", "#00a896", "#00a896"]
         }
       ]
     };
@@ -22,12 +22,32 @@ class HorizontalBarChart extends React.Component {
         height={50}
         options={{
           title: {
-            text: "Similar Movie Vote Averages"
+            text: "Similar Movies Vote Averages",
+            fontColor: "#FFF",
+            display: true,
+            fontSize: 20
+          },
+          scales: {
+            xAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                  fontColor: "#FFF"
+                }
+              }
+            ],
+
+            yAxes: [
+              {
+                ticks: {
+                  fontColor: "#FFF"
+                }
+              }
+            ]
           },
           maintainAspectRatio: true,
           legend: {
-            position: "top",
-            display: true
+            display: false
           }
         }}
       />

@@ -10,7 +10,7 @@ class BarChart extends React.Component {
         {
           label: "Dollars",
           data: [this.props.movie.budget, this.props.movie.revenue],
-          backgroundColor: ["#002E5F", "#007FBF"]
+          backgroundColor: ["#2b908f", "#2b908f"]
         }
       ]
     };
@@ -22,26 +22,42 @@ class BarChart extends React.Component {
         height={50}
         options={{
           title: {
-            text: "Movie Numbers"
+            text: "Movie Numbers",
+            display: true,
+            fontColor: "#FFF",
+            fontSize: 20
           },
           scales: {
             yAxes: [
               {
                 ticks: {
                   callback: function(value, index, values) {
-                    if (value <= 10) {
-                      return value;
-                    }
-                    return `$` + value;
-                  }
+                    return (
+                      "$" +
+                      value
+                        .toFixed(0)
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    );
+                  },
+                  fontColor: "#fff",
+                  beginAtZero: true
+                }
+              }
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                  fontColor: "#FFF"
                 }
               }
             ]
           },
+
           maintainAspectRatio: true,
           legend: {
-            position: "top",
-            display: true
+            display: false
           }
         }}
       />

@@ -11,7 +11,7 @@ class DoughnutChart extends React.Component {
         {
           label: "Score",
           data: [this.props.movie.vote_average, 10 - this.props.movie.vote_average],
-          backgroundColor: ["#0B8D6B", "#F26754"]
+          backgroundColor: ["#09BC8A", "#004346"]
         }
       ]
     };
@@ -25,7 +25,12 @@ class DoughnutChart extends React.Component {
           options={{
             title: {
               display: "vote_average",
-              text: "Vote Average"
+              text: "Vote Average",
+              fontColor: "#FFF",
+              fontSize: 20
+            },
+            tooltips: {
+              enabled: false
             },
             animation: {
               animateRotate: true,
@@ -33,8 +38,7 @@ class DoughnutChart extends React.Component {
             },
             maintainAspectRatio: true,
             legend: {
-              position: "top",
-              display: true
+              display: false
             }
           }}
         />
