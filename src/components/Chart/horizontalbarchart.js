@@ -1,6 +1,7 @@
 import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import { connect } from "react-redux";
+import "./horizontalbarchart.css";
 
 class HorizontalBarChart extends React.Component {
   render() {
@@ -16,41 +17,44 @@ class HorizontalBarChart extends React.Component {
     };
 
     return (
-      <HorizontalBar
-        data={chartData}
-        width={100}
-        height={50}
-        options={{
-          title: {
-            text: "Similar Movies Vote Averages",
-            fontColor: "#FFF",
-            display: true,
-            fontSize: 20
-          },
-          scales: {
-            xAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                  fontColor: "#FFF"
+      <div className="horizontal-bar-chart-container">
+        <HorizontalBar
+          data={chartData}
+          width={100}
+          height={50}
+          options={{
+            title: {
+              text: "Similar Movies Vote Averages",
+              fontColor: "#FFF",
+              display: true,
+              fontSize: 20
+            },
+            scales: {
+              xAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                    fontColor: "#FFF"
+                  }
                 }
-              }
-            ],
+              ],
 
-            yAxes: [
-              {
-                ticks: {
-                  fontColor: "#FFF"
+              yAxes: [
+                {
+                  ticks: {
+                    fontColor: "#FFF"
+                  }
                 }
-              }
-            ]
-          },
-          maintainAspectRatio: true,
-          legend: {
-            display: false
-          }
-        }}
-      />
+              ]
+            },
+            maintainAspectRatio: true,
+            responsive: true,
+            legend: {
+              display: false
+            }
+          }}
+        />
+      </div>
     );
   }
 }

@@ -8,9 +8,22 @@
 
 .vote-average-score {
   position: absolute;
-  top: 40%;
-  right: 5%;
+  top: 50%;
+  right: 2%;
   display: inline-block;
-  font-size: 4em;
+  font-size: 180%;
+
   color: #00a896;
+}
+
+@media only screen and (min-width: 600px) {
+  .vote-average-score {
+    font-size: 250%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .vote-average-score {
+    font-size: 350%;
+  }
 }

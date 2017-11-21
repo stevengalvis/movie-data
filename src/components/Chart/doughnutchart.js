@@ -42,7 +42,7 @@ class DoughnutChart extends React.Component {
             }
           }}
         />
-        <span class="vote-average-score">{this.props.movie.vote_average}</span>
+        <span class="vote-average-score">{`${this.props.movie.vote_average} / 10`}</span>
       </div>
     );
   }
