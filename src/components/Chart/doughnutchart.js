@@ -24,7 +24,7 @@ class DoughnutChart extends React.Component {
           height={50}
           options={{
             title: {
-              display: "vote_average",
+              display: true,
               text: "Vote Average",
               fontColor: "#FFF",
               fontSize: 20
@@ -36,7 +36,7 @@ class DoughnutChart extends React.Component {
               animateRotate: true,
               animateScale: true
             },
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             legend: {
               display: false
             }

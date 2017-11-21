@@ -47,7 +47,7 @@ class HorizontalBarChart extends React.Component {
                 }
               ]
             },
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             responsive: true,
             legend: {
               display: false

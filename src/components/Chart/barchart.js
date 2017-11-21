@@ -1,6 +1,7 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 import { connect } from "react-redux";
+import "./barchart.css";
 
 class BarChart extends React.Component {
   render() {
@@ -16,51 +17,53 @@ class BarChart extends React.Component {
     };
 
     return (
-      <Bar
-        data={chartData}
-        width={100}
-        height={50}
-        options={{
-          title: {
-            text: "Movie Numbers",
-            display: true,
-            fontColor: "#FFF",
-            fontSize: 20
-          },
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  callback: function(value, index, values) {
-                    return (
-                      "$" +
-                      value
-                        .toFixed(0)
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                    );
-                  },
-                  fontColor: "#fff",
-                  beginAtZero: true
+      <div className="movie-financial-chart-container">
+        <Bar
+          data={chartData}
+          width={100}
+          height={50}
+          options={{
+            title: {
+              text: "Movie Numbers",
+              display: true,
+              fontColor: "#FFF",
+              fontSize: 20
+            },
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    callback: function(value, index, values) {
+                      return (
+                        "$" +
+                        value
+                          .toFixed(0)
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                      );
+                    },
+                    fontColor: "#fff",
+                    beginAtZero: true
+                  }
                 }
-              }
-            ],
-            xAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                  fontColor: "#FFF"
+              ],
+              xAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                    fontColor: "#FFF"
+                  }
                 }
-              }
-            ]
-          },
+              ]
+            },
 
-          maintainAspectRatio: true,
-          legend: {
-            display: false
-          }
-        }}
-      />
+            maintainAspectRatio: false,
+            legend: {
+              display: false
+            }
+          }}
+        />
+      </div>
     );
   }
 }
