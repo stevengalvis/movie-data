@@ -1,7 +1,7 @@
 .vote-average-container {
+  flex-basis: 50%;
+  height: 150px;
   position: relative;
-
-  height: 200px;
 }
 
 .vote-average-score {
