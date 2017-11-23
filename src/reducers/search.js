@@ -8,7 +8,9 @@ import {
 const initialState = {
   movies: [],
   titles: [],
-  error: null
+  error: null,
+  searchAnywhere: false,
+  searchAnywhereMovieId: null
 };
 
 export default function searchReducer(state = initialState, action) {
@@ -19,6 +21,13 @@ export default function searchReducer(state = initialState, action) {
         movies: action.movies
       };
 
+    case "SEARCH_ANYWHERE":
+      return {
+        ...state,
+        searchAnywhere: true,
+        searchAnywhereMovieId: action.movieId,
+        movies: []
+      };
     case UPDATE_MOVIE_TITLES:
       console.log(action);
       return Object.assign({}, state, {

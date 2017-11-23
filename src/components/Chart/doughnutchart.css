@@ -1,32 +1,15 @@
 .vote-average-container {
-  flex-basis: 50%;
-  height: 150px;
+  height: 25vh;
   position: relative;
 }
 
 .vote-average-score {
-  position: absolute;
-  top: 50%;
-  right: 2%;
-  display: inline-block;
-  font-size: 180%;
-
   color: #00a896;
-}
-
-@media only screen and (min-width: 600px) {
-  .vote-average-score {
-    font-size: 250%;
-  }
+  display: inline-block;
 }
 
 @media only screen and (min-width: 800px) {
-  .vote-average-score {
-    font-size: 350%;
-  }
-
   .vote-average-container {
     height: 15vh;
-    max-width: 50%;
   }
 }

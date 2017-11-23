@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 import HeaderBar from "./components/Header-Bar/header-bar";
@@ -55,6 +55,8 @@ class App extends Component {
           <header>
             <HeaderBar />
           </header>
+          <SearchBox />
+          {this.props.searchAnywhere ? <Redirect to={`/movie/${this.props.searchAnywhereMovieId}`} /> : ""}
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/search" component={SearchBox} />
           <Route exact path="/movie/:movieId" component={Card} />
@@ -69,7 +71,9 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   hasAuthToken: state.auth.authToken !== null,
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  searchAnywhere: state.search.searchAnywhere,
+  searchAnywhereMovieId: state.search.searchAnywhereMovieId
 });
 
 export default connect(mapStateToProps)(App);

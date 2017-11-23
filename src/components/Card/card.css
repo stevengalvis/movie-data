@@ -18,7 +18,7 @@
 }
 
 .card-title {
-  font-size: 5vh;
+  font-size: 4vh;
   font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -82,18 +82,14 @@
   flex-basis: 50%;
 }
 
-.card-panel-container {
-  display: flex;
-  flex-direction: row;
-}
-
 .card-genres {
   flex-basis: 50%;
 }
 
 .card-panel-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  max-width: 100%;
 }
 
 @media only screen and (min-width: 800px) {
@@ -107,19 +103,6 @@
     flex-direction: row;
   }
 
-  .card-container > div {
-    flex: 1;
-  }
-
-  /*.card-description,
-  .card-title,
-  .card-tagline {
-    width: 70%;
-  }*/
-
-  .bar-chart-containers {
-    display: flex;
-  }
   .card-info-value,
   .genre-value {
     font-size: 2vw;

@@ -1,11 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import Spinner from "react-spinkit";
-import { searchMovies } from "../../actions/search";
+import { Link } from "react-router-dom";
+import { searchMovies, searchAnywhere } from "../../actions/search";
 
 export class SearchBox extends React.Component {
   onMovieClick(movieId) {
-    this.props.history.push(`/movie/${movieId}`);
+    this.navigate(movieId);
+  }
+
+  navigate(movieId) {
+    this.props.dispatch(searchAnywhere(movieId));
   }
 
   renderResults() {
@@ -41,7 +46,9 @@ export class SearchBox extends React.Component {
           <input type="search" ref={input => (this.input = input)} />
           <button>Search</button>
         </form>
-        <div className="movie-search-results">{this.renderResults()}</div>
+        <div className="movie-search-results" ref={searchResults => (this.searchResults = searchResults)}>
+          {this.renderResults()}
+        </div>
       </div>
     );
   }

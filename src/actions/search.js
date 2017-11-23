@@ -23,6 +23,12 @@ export const clearSearchTitles = () => ({
   type: CLEAR_SEARCH_TITLES
 });
 
+export const SEARCH_ANYWHERE = "SEARCH_ANYWHERE";
+export const searchAnywhere = movieId => ({
+  type: SEARCH_ANYWHERE,
+  movieId
+});
+
 export const searchMovies = query => dispatch => {
   let movies;
   search(query)
