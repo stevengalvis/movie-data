@@ -37,7 +37,7 @@
 .card-info-title,
 .genres-title {
   color: #fff;
-  font-size: 5.2vw;
+  font-size: 6vw;
 }
 
 .card-info-value {
@@ -111,16 +111,36 @@
     flex: 1;
   }
 
+  /*.card-description,
+  .card-title,
+  .card-tagline {
+    width: 70%;
+  }*/
+
+  .bar-chart-containers {
+    display: flex;
+  }
+  .card-info-value,
+  .genre-value {
+    font-size: 2vw;
+  }
+
   .card-about-container {
     display: flex;
     flex-direction: column;
+    flex-shrink: 3;
   }
 
   .card-poster-image {
     flex-basis: 100%;
     max-width: inherit;
   }
+  .card-poster {
+    max-width: auto;
+  }
 
-  .card-title {
+  .card-info-title,
+  .genres-title {
+    font-size: 2vw;
   }
 }

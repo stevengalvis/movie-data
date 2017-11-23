@@ -20,7 +20,7 @@ class BarChart extends React.Component {
       <div className="movie-financial-chart-container">
         <Bar
           data={chartData}
-          width={100}
+          width={50}
           height={50}
           options={{
             title: {

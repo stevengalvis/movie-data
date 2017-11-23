@@ -20,7 +20,7 @@ class DoughnutChart extends React.Component {
       <div className="vote-average-container">
         <Doughnut
           data={chartData}
-          width={100}
+          width={50}
           height={50}
           options={{
             title: {

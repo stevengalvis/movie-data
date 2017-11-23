@@ -70,8 +70,10 @@ export class Card extends React.Component {
             </div>
             <DoughnutChart />
           </div>
-          {this.props.isLoading ? <Spinner spinnername="circle" noFadeIn /> : <HorizontalBarChart />}
-          <BarChart />
+          <div className="bar-charts-container">
+            {this.props.isLoading ? <Spinner spinnername="circle" noFadeIn /> : <HorizontalBarChart />}
+            <BarChart />
+          </div>
           <button className="add-movie-btn" onClick={() => this.onWatchlistClicked()}>
             Add to Watchlist
           </button>

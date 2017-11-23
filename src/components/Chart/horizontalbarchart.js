@@ -20,7 +20,7 @@ class HorizontalBarChart extends React.Component {
       <div className="similar-movies-chart-container">
         <HorizontalBar
           data={chartData}
-          width={100}
+          width={50}
           height={50}
           options={{
             title: {
