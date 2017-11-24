@@ -2,7 +2,8 @@ import {
   SEARCH_MOVIES_SUCCESS,
   SEARCH_MOVIES_ERROR,
   UPDATE_MOVIE_TITLES,
-  CLEAR_SEARCH_TITLES
+  CLEAR_SEARCH_TITLES,
+  SEARCH_ANYWHERE
 } from "../actions/search";
 
 const initialState = {
@@ -21,7 +22,7 @@ export default function searchReducer(state = initialState, action) {
         movies: action.movies
       };
 
-    case "SEARCH_ANYWHERE":
+    case SEARCH_ANYWHERE:
       return {
         ...state,
         searchAnywhere: true,
