@@ -30,8 +30,11 @@ export class Card extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    let backdropImg = "https://image.tmdb.org/t/p/original" + this.props.movie.backdrop_path;
-    document.body.style.backgroundImage = "url(" + backdropImg + ")";
+    if (!this.props.isLoading) {
+      let backdropImg = "https://image.tmdb.org/t/p/original" + this.props.movie.backdrop_path;
+      document.body.style.backgroundImage = "url(" + backdropImg + ")";
+    }
+
     if (prevProps.movieId !== this.props.movieId) {
       this.props.dispatch(updateCard(this.props.movieId));
       this.props.dispatch(updateSimilarMovies(this.props.movieId));

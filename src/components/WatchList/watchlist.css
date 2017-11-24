@@ -1,0 +1,39 @@
+.watchlist-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.watchlist-dashboard {
+  background-color: black;
+}
+
+.watchlist-card-movie-title {
+  color: #00a896;
+}
+
+.watchlist-card-img {
+  max-width: 100%;
+  display: block;
+}
+
+.watchlist-card {
+  margin: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .watchlist-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .watchlist-card {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .watchlist-card {
+    width: calc(33.3333% - 2rem);
+  }
+}

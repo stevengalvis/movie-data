@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getWatchlist, deleteMovie } from "../../actions/watchlist";
 import Spinner from "react-spinkit";
+import "./watchlist.css";
 
 export class Watchlist extends React.Component {
   componentDidMount() {
@@ -15,16 +16,14 @@ export class Watchlist extends React.Component {
   getWatchlistMovies() {
     const movies = this.props.watchlistMovies.map((movie, index) => {
       return (
-        <li key={index}>
-          <div>
-            <h3>{movie.title}</h3>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" />
-          </div>
+        <li className="watchlist-card" key={index}>
+          <h3 className="watchlist-card-movie-title">{movie.title}</h3>
+          <img className="watchlist-card-img" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" />
           <button onClick={() => this.deleteMovie(movie)}>Delete</button>
         </li>
       );
     });
-    return <ul className="watchlist-results"> {movies}</ul>;
+    return <ul className="watchlist-container"> {movies}</ul>;
   }
 
   render() {
@@ -32,12 +31,12 @@ export class Watchlist extends React.Component {
       this.props.dispatch(getWatchlist());
     }
     return (
-      <div>
+      <div className="watchlist-dashboard">
         <h1>Your Favorites</h1>
         {!this.props.watchlistMovies ? (
           <Spinner spinnername="circle" noFadeIn />
         ) : (
-          <div>{this.getWatchlistMovies()} </div>
+          <div className="watchlist">{this.getWatchlistMovies()} </div>
         )}
       </div>
     );
