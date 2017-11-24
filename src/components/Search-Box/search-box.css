@@ -23,6 +23,7 @@
 .search-box-list {
   color: #fff;
   position: absolute;
+  top: 100%;
 }
 
 .search-box-title {

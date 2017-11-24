@@ -30,6 +30,7 @@
 
 .watchlist-card-movie-title {
   color: #00a896;
+  text-decoration: none;
 }
 
 .watchlist-card-img {

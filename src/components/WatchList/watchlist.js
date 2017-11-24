@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { getWatchlist, deleteMovie } from "../../actions/watchlist";
 import Spinner from "react-spinkit";
 import "./watchlist.css";
@@ -7,6 +8,7 @@ import "./watchlist.css";
 export class Watchlist extends React.Component {
   componentDidMount() {
     this.props.dispatch(getWatchlist());
+    document.body.style.backgroundColor = "black";
   }
 
   deleteMovie(movie) {
@@ -17,8 +19,16 @@ export class Watchlist extends React.Component {
     const movies = this.props.watchlistMovies.map((movie, index) => {
       return (
         <li className="watchlist-card" key={index}>
-          <h3 className="watchlist-card-movie-title">{movie.title}</h3>
-          <img className="watchlist-card-img" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" />
+          <Link to={`/movie/${movie.id}`} className="watchlist-card-movie-title">
+            {movie.title}
+          </Link>
+          <Link to={`/movie/${movie.id}`}>
+            <img
+              className="watchlist-card-img"
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt=""
+            />{" "}
+          </Link>
           <button className="delete-card-btn" onClick={() => this.deleteMovie(movie)}>
             Delete
           </button>

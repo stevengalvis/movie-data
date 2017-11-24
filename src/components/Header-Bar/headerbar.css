@@ -1,6 +1,31 @@
 .header-bar-container {
   display: flex;
+  justify-content: flex-end;
 }
 .header-bar {
-  background-color: #000000;
+  color: #fff;
+}
+
+.watchlist-btn {
+  color: #fff;
+  text-decoration: none;
+}
+
+.logout-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  margin: 1%;
+  word-wrap: break-word;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  color: #028090;
+}
+
+.watchlist-btn:hover {
+  color: #028090;
 }

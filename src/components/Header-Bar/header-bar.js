@@ -17,8 +17,16 @@ export class HeaderBar extends React.Component {
     let logOutButton;
     let watchlistButton;
     if (this.props.loggedIn) {
-      logOutButton = <button onClick={() => this.logOut()}>Log out </button>;
-      watchlistButton = <Link to={"/watchlist"}>See Watchlist</Link>;
+      logOutButton = (
+        <button className="logout-btn" onClick={() => this.logOut()}>
+          Log out{" "}
+        </button>
+      );
+      watchlistButton = (
+        <Link to={"/watchlist"} className="watchlist-btn">
+          See Watchlist
+        </Link>
+      );
     }
     return (
       <div className="header-bar">
