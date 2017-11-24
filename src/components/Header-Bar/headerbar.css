@@ -1,0 +1,6 @@
+.header-bar-container {
+  display: flex;
+}
+.header-bar {
+  background-color: #000000;
+}

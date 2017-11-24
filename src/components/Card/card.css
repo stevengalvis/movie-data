@@ -1,20 +1,20 @@
 .add-movie-btn {
   outline: none;
   text-align: center;
-  background: #fff;
+  background: #000000;
   height: 40px;
   border-radius: 40px;
-  color: #028090;
+  color: #fff;
   border: 2px solid #028090;
   margin: 2%;
-  font-size: 4vh;
+  font-size: 2vh;
   text-align: center;
   cursor: pointer;
 }
 
 .add-movie-btn:hover {
-  color: white;
-  background: #028090;
+  color: #028090;
+  background: #fff;
 }
 
 .card-title {

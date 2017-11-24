@@ -1,3 +1,23 @@
+.delete-card-btn {
+  outline: none;
+  text-align: center;
+  background: #000000;
+  height: 40px;
+  border-radius: 40px;
+  color: white;
+  border: 2px solid #028090;
+  margin: 2%;
+  font-size: 2vh;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.delete-card-btn:hover {
+  color: #028090;
+  background: white;
+}
+
 .watchlist-container {
   margin: 0 auto;
   max-width: 1200px;
@@ -5,7 +25,7 @@
 }
 
 .watchlist-dashboard {
-  background-color: black;
+  background-color: #000000;
 }
 
 .watchlist-card-movie-title {

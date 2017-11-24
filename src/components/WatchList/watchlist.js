@@ -19,7 +19,9 @@ export class Watchlist extends React.Component {
         <li className="watchlist-card" key={index}>
           <h3 className="watchlist-card-movie-title">{movie.title}</h3>
           <img className="watchlist-card-img" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" />
-          <button onClick={() => this.deleteMovie(movie)}>Delete</button>
+          <button className="delete-card-btn" onClick={() => this.deleteMovie(movie)}>
+            Delete
+          </button>
         </li>
       );
     });

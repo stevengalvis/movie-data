@@ -34,7 +34,7 @@ export const searchMovies = query => dispatch => {
   search(query)
     .then(_movies => {
       movies = _movies.results.map(movie => movie);
-      dispatch(searchMoviesSuccess(movies));
+      dispatch(searchMoviesSuccess(movies.slice(0, 5)));
     })
     .catch(error => dispatch(searchMoviesError(error)));
 };

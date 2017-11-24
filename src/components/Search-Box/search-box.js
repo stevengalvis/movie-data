@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import Spinner from "react-spinkit";
 import { Link } from "react-router-dom";
 import { searchMovies, searchAnywhere } from "../../actions/search";
+import "./search-box.css";
 
 export class SearchBox extends React.Component {
   onMovieClick(movieId) {
     this.navigate(movieId);
+    this.input.value = "";
   }
 
   navigate(movieId) {
@@ -23,12 +25,12 @@ export class SearchBox extends React.Component {
     }
 
     let movies = this.props.movies.map((movie, index) => (
-      <li key={index}>
+      <li className="search-box-title" key={index}>
         <span onClick={e => this.onMovieClick(movie.id)}>{movie.title}</span>
       </li>
     ));
 
-    return <ul className="movie-search-results">{movies}</ul>;
+    return <ul className="search-box-list">{movies}</ul>;
   }
 
   search(e) {
@@ -41,12 +43,16 @@ export class SearchBox extends React.Component {
 
   render() {
     return (
-      <div className="search-box">
+      <div className="search-box-container">
         <form onSubmit={e => this.search(e)}>
-          <input type="search" ref={input => (this.input = input)} />
-          <button>Search</button>
+          <input
+            type="search"
+            placeholder="Search Movie"
+            className="search-input"
+            ref={input => (this.input = input)}
+          />
         </form>
-        <div className="movie-search-results" ref={searchResults => (this.searchResults = searchResults)}>
+        <div className="search-results" ref={searchResults => (this.searchResults = searchResults)}>
           {this.renderResults()}
         </div>
       </div>
