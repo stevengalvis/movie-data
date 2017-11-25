@@ -1,15 +1,16 @@
 .search-box-container {
   display: flex;
-  justify-content: center;
+  align-items: center;
   margin-bottom: 2%;
+  flex-direction: column;
 }
 
 .search-input {
-  width: 100%;
   border: none;
   border-bottom: 1px solid #fff;
   background-color: transparent;
   color: white;
+  position: relative;
 }
 
 .search-input:focus {
@@ -22,15 +23,21 @@
 
 .search-box-list {
   color: #fff;
-  position: absolute;
-  top: 100%;
 }
 
 .search-box-title {
   background-color: black;
-  z-index: 100;
+  word-wrap: break-word;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.search-box-title:hover {
+  background-color: #028090;
 }
 
 .search-results {
-  position: relative;
+  position: absolute;
+  top: 7%;
+  z-index: 100;
 }
