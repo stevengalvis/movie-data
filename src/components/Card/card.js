@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Spinner from "react-spinkit";
-import DoughnutChart from "../Chart/doughnutchart";
+import UserScore from "../User-Score/user-score";
 import BarChart from "../Chart/barchart";
 import HorizontalBarChart from "../Chart/horizontalbarchart";
 import { updateCard } from "../../actions/card";
@@ -57,9 +57,9 @@ export class Card extends React.Component {
         </div>
         <div className="card-data-container">
           <div className="card-about-container">
-            <h2 class="card-title">{this.props.movie.title}</h2>
+            <h2 className="card-title">{this.props.movie.title}</h2>
             <h3 className="card-tagline">{this.props.movie.tagline}</h3>
-            <p class="card-description">{this.props.movie.overview}</p>
+            <p className="card-description">{this.props.movie.overview}</p>
           </div>
           <div className="card-details-container">
             <p className="release-date">
@@ -75,7 +75,7 @@ export class Card extends React.Component {
             <div className="card-genres">
               <span className="genres-title">Genres:</span> {this.renderGenres()}
             </div>
-            <DoughnutChart />
+            <UserScore />
           </div>
           <div className="bar-charts-container">
             {this.props.isLoading ? <Spinner spinnername="circle" noFadeIn /> : <HorizontalBarChart />}
