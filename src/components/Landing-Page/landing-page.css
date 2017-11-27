@@ -1,0 +1,32 @@
+.banner-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.responsive-image {
+  max-width: 100%;
+}
+
+.banner-container img {
+  display: block;
+}
+
+.banner-text {
+  /*position: absolute;*/
+  color: #fff;
+  /*bottom: 5%;*/
+}
+
+.banner-info {
+  /*position: absolute;*/
+  color: #fff;
+  /*bottom: 0;*/
+}
+
+.banner-content-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 1%;
+}

@@ -2,22 +2,29 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import LoginForm from "../Login/login-form";
+import "./landing-page.css";
+import backdrop from "../../avengers-backdrop.jpg";
+import SimilarMoviesChart from "../../similar-movies-chart.png";
 
 const LandingPage = props => {
   if (props.loggedIn) {
     return <Redirect to="/movie" />;
   }
   return (
-    <div>
-      {/*search component should go here */}
-      <h2>fun movie analytics</h2>
-      <img alt="" />
-      <div>
-        <ul>
-          <li>Icon 1</li>
-          <li>Icon 2</li>
-          <li>Icon 3</li>
-        </ul>
+    <div className="landing-page">
+      <div className="banner-container">
+        <img className="responsive-image banner-image" src={backdrop} alt="" />
+        <div className="banner-content-container">
+          <h2 className="banner-text">Movie Data Analytics</h2>
+          <p className="banner-info">Get popular movie data and create a watchlist</p>
+        </div>
+      </div>
+      <div className="similar-movies-about-container">
+        <img src={SimilarMoviesChart} className="similar-movies-img responsive-image" alt="" />
+        <div className="similar-movies-about-text">
+          <h2>Compare Similar Movies User Score</h2>
+          <p>Get a chart of similar movies based on kewyords and genres from The Movie DB</p>
+        </div>
       </div>
       <form>
         Sign up
