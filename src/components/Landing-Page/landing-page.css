@@ -1,3 +1,7 @@
+.landing-page {
+  background-color: #000000;
+}
+
 .banner-container {
   margin: 0 auto;
   max-width: 1200px;
@@ -14,19 +18,74 @@
 }
 
 .banner-text {
-  /*position: absolute;*/
   color: #fff;
-  /*bottom: 5%;*/
 }
 
 .banner-info {
-  /*position: absolute;*/
   color: #fff;
-  /*bottom: 0;*/
+}
+
+.similar-movies-about-text {
+  color: #fff;
 }
 
 .banner-content-container {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   bottom: 1%;
+}
+
+.similar-movies-about-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+  max-height: 300px;
+}
+
+similar-movies-image {
+  display: block;
+}
+
+.movie-numbers-about-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+  max-height: 300px;
+}
+
+.movie-numbers-about-text {
+  color: #fff;
+}
+
+@media only screen and (min-width: 600px) {
+  .similar-movies-about-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-height: 300px;
+  }
+
+  .similar-movies-about-text {
+    width: 40%;
+    align-self: center;
+  }
+
+  .similar-movies-image {
+    width: 60%;
+  }
+
+  .movie-numbers-about-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-height: 300px;
+  }
+  .movie-numbers-about-text {
+    width: 40%;
+    align-self: center;
+  }
+
+  .movie-numbers-image {
+    width: 60%;
+  }
 }
