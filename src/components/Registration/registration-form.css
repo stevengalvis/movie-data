@@ -27,7 +27,7 @@
   color: #fff;
 }
 
-.register-form-field {
+.input-form-field {
   background-color: #028090;
   border: 0.1em solid #028090;
   height: 2em;
@@ -49,6 +49,9 @@
   color: #fff;
   cursor: pointer;
 }
+.register-form-submit-btn:hover {
+  background-color: #028090;
+}
 
 @media screen and (max-width: 500px) {
   .register-form-container .register-form-input,
@@ -57,7 +60,7 @@
     width: 100%;
   }
 
-  .register-form-field {
+  .input-form-field {
     width: 5em;
     font-size: 0.9em;
     padding: 0;
@@ -68,7 +71,7 @@
   .register-form-container {
     width: 80%;
   }
-  .register-form-field {
+  .input-form-field {
     font-size: 1.3em;
   }
 }

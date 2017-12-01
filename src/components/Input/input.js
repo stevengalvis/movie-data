@@ -22,7 +22,7 @@ export default class Input extends React.Component {
       <div className="form-input">
         <label htmlFor={this.props.input.name}>{this.props.label}</label>
         <input
-          className="register-form-field"
+          className="input-form-field"
           {...this.props.input}
           id={this.props.input.name}
           type={this.props.type}

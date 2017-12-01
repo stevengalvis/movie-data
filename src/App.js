@@ -52,10 +52,18 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header>
-            <HeaderBar />
-          </header>
-          <SearchBox />
+          {this.props.loggedIn ? (
+            <div>
+              {" "}
+              <header>
+                <HeaderBar />
+              </header>
+              <SearchBox />
+            </div>
+          ) : (
+            ""
+          )}
+
           {this.props.searchAnywhere ? <Redirect to={`/movie/${this.props.searchAnywhereMovieId}`} /> : ""}
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/search" component={SearchBox} />

@@ -1,0 +1,28 @@
+.login-form-container {
+  padding: 20px 0;
+  border-radius: 20px;
+  background-color: #333;
+  margin: auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-field-container,
+.login-form-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0.5em;
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.login-form-label {
+  background-color: #00a896;
+  border: 0.1em solid #00a896;
+  height: 2em;
+  flex: 1;
+  font-size: 1.3em !important;
+  max-width: 15em;
+  color: #fff;
+}

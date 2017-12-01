@@ -2,6 +2,7 @@ import React from "react";
 import { Field, reduxForm, focus } from "redux-form";
 import { registerUser } from "../../actions/users";
 import { login } from "../../actions/auth";
+import { connect } from "react-redux";
 import Input from "../Input/input";
 import { required, nonEmpty, matches, length, isTrimmed } from "../../validators";
 import "./registration-form.css";
@@ -13,6 +14,7 @@ class RegistrationForm extends React.Component {
     return this.props.dispatch(registerUser(user)).then(() => this.props.dispatch(login(username, password)));
   }
 
+  // on component did mount dispatch an action to update state from is a registery page
   render() {
     return (
       <div className="register-form-container">
@@ -77,4 +79,4 @@ const Register = reduxForm({
   onSubmitFail: (errors, dispatch) => dispatch(focus("registration", Object.keys(errors)[0]))
 })(RegistrationForm);
 
-export default Register;
+export default connect()(Register);
