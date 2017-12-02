@@ -18,6 +18,9 @@ class RegistrationForm extends React.Component {
   render() {
     return (
       <div className="register-form-container">
+        <div className="register-form-title-container">
+          <h2 className="register-form-title-text">Register</h2>
+        </div>
         <form className="register-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
           <div className="register-form-input">
             <label htmlFor="firstName" className="register-form-label">

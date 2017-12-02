@@ -2,6 +2,8 @@
   padding: 20px 0;
   border-radius: 20px;
   background-color: #333;
+  border: 0.1em solid #02c39a;
+  flex-direction: column;
   margin: auto;
   width: 90%;
   display: flex;
@@ -27,15 +29,6 @@
   color: #fff;
 }
 
-.input-form-field {
-  background-color: #028090;
-  border: 0.1em solid #028090;
-  height: 2em;
-  flex: 1;
-  font-size: 1.3em !important;
-  max-width: 15em;
-}
-
 .register-form-submit-btn {
   margin-top: 1.4em;
   width: 100%;
@@ -53,25 +46,23 @@
   background-color: #028090;
 }
 
+.register-form-title-container {
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 500px) {
   .register-form-container .register-form-input,
   .register-form-submit {
     margin: 0.5em 0.5em;
     width: 100%;
   }
-
-  .input-form-field {
-    width: 5em;
-    font-size: 0.9em;
-    padding: 0;
-  }
 }
 
 @media screen and (min-width: 960px) {
   .register-form-container {
     width: 80%;
-  }
-  .input-form-field {
-    font-size: 1.3em;
   }
 }

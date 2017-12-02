@@ -1,0 +1,27 @@
+.input-form-field {
+  background-color: #028090;
+  border: 0.1em solid #028090;
+  height: 2em;
+  flex: 1;
+  font-size: 1.3em !important;
+  max-width: 15em;
+}
+
+.form-error,
+.form-warning {
+  color: red;
+}
+
+@media screen and (max-width: 500px) {
+  .input-form-field {
+    width: 5em;
+    font-size: 0.9em;
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .input-form-field {
+    font-size: 1.3em;
+  }
+}
