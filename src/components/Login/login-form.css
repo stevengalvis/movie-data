@@ -54,6 +54,22 @@
   align-items: center;
 }
 
+.demo-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.deomo-user-credentials {
+  color: #f0f3bd;
+}
+
+.demo-user-container p {
+  word-wrap: break-word;
+  justify-content: center;
+}
+
 @media screen and (max-width: 500px) {
   .loginform-container .login-form-field-container,
   .login-form-btn-container {

@@ -47,7 +47,7 @@ class RegistrationForm extends React.Component {
               component={Input}
               type="password"
               name="password"
-              validate={[required, length({ min: 7, max: 72 }), isTrimmed]}
+              validate={[required, length({ min: 3, max: 72 }), isTrimmed]}
             />
           </div>
           <div className="register-form-input">

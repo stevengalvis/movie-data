@@ -33,6 +33,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
   bottom: 1%;
+  width: 99%;
 }
 
 .similar-movies-about-container {
@@ -42,7 +43,8 @@
   max-height: 300px;
 }
 
-similar-movies-image {
+.similar-movies-image,
+.movie-numbers-image {
   display: block;
 }
 
@@ -61,11 +63,17 @@ similar-movies-image {
   display: flex;
   justify-content: flex-end;
 }
+
 .nav-bar {
   color: #fff;
 }
 
-.regiser-btn,
+.nav-bar-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.regitser-btn,
 .login-btn {
   color: #fff;
   text-decoration: none;
@@ -89,6 +97,16 @@ similar-movies-image {
 
 .register-btn:hover {
   color: #028090;
+}
+
+footer {
+  color: #fff;
+}
+
+.footer-container {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (min-width: 600px) {

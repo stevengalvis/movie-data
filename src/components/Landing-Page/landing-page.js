@@ -8,18 +8,26 @@ import SimilarMoviesChart from "../../similar-movies-chart.png";
 import movieNumbersChart from "../../movie-numbers.png";
 
 const LandingPage = props => {
-  // if (props.loggedIn) {
-  //   return <Redirect to="/movie" />;
-  // }
+  if (props.loggedIn) {
+    return <Redirect to="/movie" />;
+  }
   return (
     <div className="landing-page">
       <div className="nav-bar">
         <ul className="nav-bar-container">
           <li>
-            <button className="register-btn">Register</button>
+            <button className="register-btn">
+              <Link to="/register" className="nav-bar-link">
+                Register
+              </Link>
+            </button>
           </li>
           <li>
-            <button className="login-btn">Login / Demo Account</button>
+            <button className="login-btn">
+              <Link to="/login" className="nav-bar-link">
+                Log in / Demo Account
+              </Link>
+            </button>
           </li>
         </ul>
       </div>
@@ -31,26 +39,22 @@ const LandingPage = props => {
         </div>
       </div>
       <div className="similar-movies-about-container">
-        <img src={SimilarMoviesChart} className="similar-movies-image responsive-image" alt="" />
         <div className="similar-movies-about-text">
           <h2>Compare Similar Movies User Score</h2>
           <p>Get a chart of similar movies based on kewyords and genres from The Movie DB</p>
         </div>
+        <img src={SimilarMoviesChart} className="similar-movies-image responsive-image" alt="" />
       </div>
       <div className="movie-numbers-about-container">
+        <img src={movieNumbersChart} className="movie-numbers-image responsive-image" alt="" />
         <div className="movie-numbers-about-text">
           <h2>Analyze Box Office numbers</h2>
           <p>View bar charts containing key financial data like budget and revenue </p>
         </div>
-        <img src={movieNumbersChart} className="movie-numbers-image responsive-image" alt="" />
       </div>
-      <form>
-        Sign up
-        <button>
-          <Link to="/movie">Get Started</Link>
-        </button>
-      </form>
-      <footer>Made by Steven Galvis</footer>
+      <div className="footer-container">
+        <footer>Made by Steven Galvis</footer>
+      </div>
     </div>
   );
 };

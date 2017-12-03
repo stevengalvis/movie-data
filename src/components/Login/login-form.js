@@ -44,6 +44,15 @@ export class LoginForm extends React.Component {
             </button>
           </div>
         </form>
+        <div className="demo-user-container">
+          <p>To enter as a demo user. Please enter the following credentials:</p>
+          <p className="demo-user-text">
+            Username:<span className="deomo-user-credentials"> abc</span>
+          </p>
+          <p className="demo-user-text">
+            Password:<span className="deomo-user-credentials"> 123</span>
+          </p>
+        </div>
       </div>
     );
   }
