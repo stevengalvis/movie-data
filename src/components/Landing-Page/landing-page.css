@@ -57,6 +57,40 @@ similar-movies-image {
   color: #fff;
 }
 
+.nav-bar-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.nav-bar {
+  color: #fff;
+}
+
+.regiser-btn,
+.login-btn {
+  color: #fff;
+  text-decoration: none;
+}
+
+.register-btn,
+.login-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  margin: 1%;
+  word-wrap: break-word;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  color: #028090;
+}
+
+.register-btn:hover {
+  color: #028090;
+}
+
 @media only screen and (min-width: 600px) {
   .similar-movies-about-container {
     display: flex;

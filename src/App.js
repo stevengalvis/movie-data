@@ -7,6 +7,7 @@ import LandingPage from "./components/Landing-Page/landing-page";
 import Card from "./components/Card/card";
 import WatchList from "./components/WatchList/watchlist";
 import Register from "./components/Registration/registration-form";
+import RegistrationPage from "./components/Registration/registration-page";
 import LoginForm from "./components/Login/login-form";
 import SearchBox from "./components/Search-Box/search-box";
 import Suggestions from "./components/AutoSuggest/autosuggest";
@@ -70,7 +71,7 @@ class App extends Component {
           <Route exact path="/movie/:movieId" component={Card} />
           <Route exact path="/watchlist" component={WatchList} />
           <Route exact path="/login" component={LoginForm} />
-          <Route exact path="/register" component={Register} />
+          <Route exact path="/register" component={RegistrationPage} />
         </div>
       </Router>
     );

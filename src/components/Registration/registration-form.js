@@ -14,7 +14,6 @@ class RegistrationForm extends React.Component {
     return this.props.dispatch(registerUser(user)).then(() => this.props.dispatch(login(username, password)));
   }
 
-  // on component did mount dispatch an action to update state from is a registery page
   render() {
     return (
       <div className="register-form-container">

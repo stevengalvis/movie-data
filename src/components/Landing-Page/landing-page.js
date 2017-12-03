@@ -13,6 +13,16 @@ const LandingPage = props => {
   // }
   return (
     <div className="landing-page">
+      <div className="nav-bar">
+        <ul className="nav-bar-container">
+          <li>
+            <button className="register-btn">Register</button>
+          </li>
+          <li>
+            <button className="login-btn">Login / Demo Account</button>
+          </li>
+        </ul>
+      </div>
       <div className="banner-container">
         <img className="responsive-image banner-image" src={backdrop} alt="" />
         <div className="banner-content-container">
