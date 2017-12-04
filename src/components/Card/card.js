@@ -19,7 +19,7 @@ export class Card extends React.Component {
   renderGenres() {
     const genres = this.props.movie.genres.map((genre, index) => (
       <li key={index}>
-        <span className="genre-value">{genre.name}</span>
+        <span className="genre-value">{genre.name} </span>
       </li>
     ));
     return <ul className="genres-results">{genres}</ul>;
@@ -32,7 +32,7 @@ export class Card extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (!this.props.isLoading) {
       let backdropImg = "https://image.tmdb.org/t/p/original" + this.props.movie.backdrop_path;
-      document.body.style.backgroundImage = "url(" + backdropImg + ")";
+      document.getElementById("card-page").style.backgroundImage = "url(" + backdropImg + ")";
     }
 
     if (prevProps.movieId !== this.props.movieId) {
@@ -47,43 +47,45 @@ export class Card extends React.Component {
     }
 
     return (
-      <div className="card-container">
-        <div className="card-poster">
-          <img
-            className="card-poster-image"
-            src={`https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`}
-            alt=""
-          />
-        </div>
-        <div className="card-data-container">
-          <div className="card-about-container">
-            <h2 className="card-title">{this.props.movie.title}</h2>
-            <h3 className="card-tagline">{this.props.movie.tagline}</h3>
-            <p className="card-description">{this.props.movie.overview}</p>
+      <div id="card-page">
+        <div className="card-container">
+          <div className="card-poster">
+            <img
+              className="card-poster-image"
+              src={`https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`}
+              alt=""
+            />
           </div>
-          <div className="card-details-container">
-            <p className="release-date">
-              <span className="card-info-title">Release Date:</span>
-              <span className="card-info-value">{this.props.movie.release_date}</span>
-            </p>
-            <p className="runtime">
-              <span className="card-info-title">Minutes:</span>{" "}
-              <span className="card-info-value">{this.props.movie.runtime}</span>
-            </p>
-          </div>
-          <div className="card-panel-container">
-            <div className="card-genres">
-              <span className="genres-title">Genres:</span> {this.renderGenres()}
+          <div className="card-data-container">
+            <div className="card-about-container">
+              <h2 className="card-title">{this.props.movie.title}</h2>
+              <h3 className="card-tagline">{this.props.movie.tagline}</h3>
+              <p className="card-description">{this.props.movie.overview}</p>
             </div>
-            <UserScore />
+            <div className="card-details-container">
+              <p className="release-date">
+                <span className="card-info-title">Release Date:</span>
+                <span className="card-info-value">{this.props.movie.release_date}</span>
+              </p>
+              <p className="runtime">
+                <span className="card-info-title">Minutes:</span>{" "}
+                <span className="card-info-value">{this.props.movie.runtime}</span>
+              </p>
+            </div>
+            <div className="card-panel-container">
+              <div className="card-genres">
+                <span className="genres-title">Genres:</span> {this.renderGenres()}
+              </div>
+              <UserScore />
+            </div>
+            <button className="add-movie-btn" onClick={() => this.onWatchlistClicked()}>
+              Add to Watchlist
+            </button>
           </div>
-          <div className="bar-charts-container">
-            {this.props.isLoading ? <Spinner spinnername="circle" noFadeIn /> : <HorizontalBarChart />}
-            <BarChart />
-          </div>
-          <button className="add-movie-btn" onClick={() => this.onWatchlistClicked()}>
-            Add to Watchlist
-          </button>
+        </div>
+        <div className="bar-charts-container">
+          {this.props.isLoading ? <Spinner spinnername="circle" noFadeIn /> : <HorizontalBarChart />}
+          <BarChart />
         </div>
       </div>
     );

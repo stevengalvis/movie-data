@@ -74,7 +74,7 @@
 }
 
 .card-poster-image {
-  max-width: 100%;
+  max-width: 300px;
 }
 
 .release-date,
@@ -92,6 +92,25 @@
   align-items: center;
 }
 
+.card-poster {
+  align-self: center;
+}
+
+.bar-charts-container {
+  background: rgba(0, 0, 0, 0.8);
+}
+#card-page {
+  background-image: rgba(0, 0, 0, 1);
+  background-repeat: no-repeat;
+
+  background-size: cover;
+}
+
+@media only screen and (min-width: 500px) {
+  .card-poster-image {
+    max-width: 400px;
+  }
+}
 @media only screen and (min-width: 800px) {
   .card-data-container {
     display: flex;
@@ -116,10 +135,11 @@
 
   .card-poster-image {
     flex-basis: 100%;
-    max-width: inherit;
+    max-width: auto;
   }
   .card-poster {
-    max-width: auto;
+    margin-right: 1%;
+    align-self: auto;
   }
 
   .card-info-title,
@@ -129,5 +149,9 @@
 
   .card-panel-container {
     flex-direction: row;
+  }
+
+  .bar-charts-container {
+    justify-content: flex-start;
   }
 }

@@ -91,11 +91,11 @@
   cursor: pointer;
 }
 
-.login-btn:hover {
+.register-btn a:hover {
   color: #028090;
 }
 
-.register-btn:hover {
+.login-btn a:hover {
   color: #028090;
 }
 
