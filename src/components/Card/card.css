@@ -10,6 +10,7 @@
   font-size: 2vh;
   text-align: center;
   cursor: pointer;
+  width: 90%;
 }
 
 .add-movie-btn:hover {
@@ -106,6 +107,12 @@
   background-size: cover;
 }
 
+.bar-charts-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 @media only screen and (min-width: 500px) {
   .card-poster-image {
     max-width: 400px;
@@ -152,6 +159,13 @@
   }
 
   .bar-charts-container {
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .bar-charts-container {
+    flex-direction: row;
     justify-content: flex-start;
   }
 }

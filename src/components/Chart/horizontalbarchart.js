@@ -3,7 +3,7 @@ import { HorizontalBar } from "react-chartjs-2";
 import { connect } from "react-redux";
 import "./horizontalbarchart.css";
 
-class HorizontalBarChart extends React.Component {
+export class HorizontalBarChart extends React.Component {
   render() {
     let chartData = {
       labels: this.props.similarMovies.map(movie => movie.title),

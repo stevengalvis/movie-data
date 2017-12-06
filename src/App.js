@@ -13,7 +13,7 @@ import SearchBox from "./components/Search-Box/search-box";
 import Suggestions from "./components/AutoSuggest/autosuggest";
 import { refreshAuthToken } from "./actions/auth";
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     if (this.props.hasAuthToken) {
       // try to get a new auth token if there is one in local storage

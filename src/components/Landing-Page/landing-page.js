@@ -7,7 +7,7 @@ import backdrop from "../../avengers-backdrop.jpg";
 import SimilarMoviesChart from "../../similar-movies-chart.png";
 import movieNumbersChart from "../../movie-numbers.png";
 
-const LandingPage = props => {
+export const LandingPage = props => {
   if (props.loggedIn) {
     return <Redirect to="/movie" />;
   }

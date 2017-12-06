@@ -7,7 +7,7 @@ import Input from "../Input/input";
 import { required, nonEmpty, matches, length, isTrimmed } from "../../validators";
 import "./registration-form.css";
 
-class RegistrationForm extends React.Component {
+export class RegistrationForm extends React.Component {
   onSubmit(values) {
     const { username, password, firstName, lastName } = values;
     const user = { username, password, firstName, lastName };

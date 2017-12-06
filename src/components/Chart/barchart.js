@@ -3,7 +3,7 @@ import { Bar } from "react-chartjs-2";
 import { connect } from "react-redux";
 import "./barchart.css";
 
-class BarChart extends React.Component {
+export class BarChart extends React.Component {
   render() {
     let chartData = {
       labels: ["Budget", "Revenue"],

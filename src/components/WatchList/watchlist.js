@@ -1,12 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { getWatchlist, deleteMovie } from "../../actions/watchlist";
 import Spinner from "react-spinkit";
 import "./watchlist.css";
 
 export class Watchlist extends React.Component {
   componentDidMount() {
+    // if (!this.props.loggedIn) {
+    //   return <Redirect to="/" />;
+    // }
     this.props.dispatch(getWatchlist());
     document.body.style.backgroundColor = "black";
   }
@@ -42,6 +45,7 @@ export class Watchlist extends React.Component {
     if (this.props.movieDeleted) {
       this.props.dispatch(getWatchlist());
     }
+
     return (
       <div className="watchlist-dashboard">
         <h1>Your Favorites</h1>
@@ -57,7 +61,8 @@ export class Watchlist extends React.Component {
 
 const mapStateToProps = state => ({
   watchlistMovies: state.watchlist.watchlistMovies,
-  movieDeleted: state.watchlist.movieDeleted
+  movieDeleted: state.watchlist.movieDeleted,
+  loggedIn: state.auth.currentuser !== null
 });
 
 export default connect(mapStateToProps)(Watchlist);
