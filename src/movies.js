@@ -5,13 +5,43 @@ const _search = query => {
   )
     .then(res => {
       if (!res.ok) {
-        return Promise.reject(res.statusText);
+        return Promise.reject(res.status_message);
       }
       return res.json();
     })
-    .then(data => data.results.map(movie => movie));
+    .then(data => data);
 };
 
-export function search(query) {
-  return _search(query);
-}
+const _getMovie = movieId => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}?&api_key=${MOVIE_DB_API_KEY}&language=en-US&page=1&include_adult=false`
+  )
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.status_message);
+      }
+      return res.json();
+    })
+    .then(movie => movie);
+};
+
+const _getSimilarMovies = movieId => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/similar?&api_key=${MOVIE_DB_API_KEY}&language=en-US&page=1&include_adult=false`
+  )
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.status_message);
+      }
+      return res.json();
+    })
+    .then(data => {
+      return data;
+    });
+};
+
+export const getSimilarMovies = movieId => _getSimilarMovies(movieId);
+
+export const search = query => _search(query);
+
+export const getMovie = movieId => _getMovie(movieId);

@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import "./App.css";
+import HeaderBar from "./components/Header-Bar/header-bar";
 import LandingPage from "./components/Landing-Page/landing-page";
-import Movie from "./components/Movie/movie";
-import Favorites from "./components/Favorites/favorites";
+import Card from "./components/Card/card";
+import WatchList from "./components/WatchList/watchlist";
 import Register from "./components/Registration/registration-form";
+import RegistrationPage from "./components/Registration/registration-page";
+import LoginForm from "./components/Login/login-form";
 import SearchBox from "./components/Search-Box/search-box";
+import Suggestions from "./components/AutoSuggest/autosuggest";
 import { refreshAuthToken } from "./actions/auth";
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     if (this.props.hasAuthToken) {
       // try to get a new auth token if there is one in local storage
@@ -48,18 +53,36 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">Movie Data</h1>
-          </header>
-          <SearchBox />
+          {this.props.loggedIn ? (
+            <div>
+              {" "}
+              <header>
+                <HeaderBar />
+              </header>
+              <SearchBox />
+            </div>
+          ) : (
+            ""
+          )}
+
+          {this.props.searchAnywhere ? <Redirect to={`/movie/${this.props.searchAnywhereMovieId}`} /> : ""}
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/movie" component={Movie} />
-          <Route exact path="/favorites" component={Favorites} />
-          <Route exact path="/register" component={Register} />
+          <Route exact path="/search" component={SearchBox} />
+          <Route exact path="/movie/:movieId" component={Card} />
+          <Route exact path="/watchlist" component={WatchList} />
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/register" component={RegistrationPage} />
         </div>
       </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.currentUser !== null,
+  searchAnywhere: state.search.searchAnywhere,
+  searchAnywhereMovieId: state.search.searchAnywhereMovieId
+});
+
+export default connect(mapStateToProps)(App);

@@ -1,0 +1,85 @@
+.login-form-container {
+  padding: 20px 0;
+  border-radius: 20px;
+  background-color: #333;
+  border: 0.1em solid #02c39a;
+  margin: auto;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-form-field-container,
+.login-form-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0.5em;
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.login-form-label {
+  background-color: #00a896;
+  border: 0.1em solid #00a896;
+  height: 2em;
+  flex: 1;
+  font-size: 1.3em !important;
+  max-width: 15em;
+  color: #fff;
+}
+
+.login-form-btn {
+  margin-top: 1.4em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+  border: 0.1em solid #05668d;
+  height: 3em;
+  border-radius: 0.5em;
+  background-color: #02c39a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-form-btn:hover {
+  background-color: #028090;
+}
+
+.login-form-title-container {
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+
+.demo-user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.deomo-user-credentials {
+  color: #f0f3bd;
+}
+
+.demo-user-container p {
+  word-wrap: break-word;
+  justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  .loginform-container .login-form-field-container,
+  .login-form-btn-container {
+    margin: 0.5em 0.5em;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .login-form-container {
+    width: 80%;
+  }
+}

@@ -1,0 +1,143 @@
+.landing-page {
+  background-color: #000000;
+}
+
+.banner-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.responsive-image {
+  max-width: 100%;
+}
+
+.banner-container img {
+  display: block;
+}
+
+.banner-text {
+  color: #fff;
+}
+
+.banner-info {
+  color: #fff;
+}
+
+.similar-movies-about-text {
+  color: #fff;
+}
+
+.banner-content-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 1%;
+  width: 99%;
+}
+
+.similar-movies-about-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+  max-height: 300px;
+}
+
+.similar-movies-image,
+.movie-numbers-image {
+  display: block;
+}
+
+.movie-numbers-about-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+  max-height: 300px;
+}
+
+.movie-numbers-about-text {
+  color: #fff;
+}
+
+.nav-bar-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-bar {
+  color: #fff;
+}
+
+.nav-bar-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.regitser-btn,
+.login-btn {
+  color: #fff;
+  text-decoration: none;
+}
+
+.register-btn,
+.login-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  margin: 1%;
+  word-wrap: break-word;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.register-btn a:hover {
+  color: #028090;
+}
+
+.login-btn a:hover {
+  color: #028090;
+}
+
+footer {
+  color: #fff;
+}
+
+.footer-container {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .similar-movies-about-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-height: 300px;
+  }
+
+  .similar-movies-about-text {
+    width: 40%;
+    align-self: center;
+  }
+
+  .similar-movies-image {
+    width: 60%;
+  }
+
+  .movie-numbers-about-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-height: 300px;
+  }
+  .movie-numbers-about-text {
+    width: 40%;
+    align-self: center;
+  }
+
+  .movie-numbers-image {
+    width: 60%;
+  }
+}
