@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import { setCurrentUser, setAuthToken } from "../../actions/auth";
 import { clearAuthToken } from "../../local-storage";
 import "./headerbar.css";
