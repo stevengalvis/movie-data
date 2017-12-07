@@ -7,7 +7,7 @@ import LandingPage from "./components/Landing-Page/landing-page";
 import Card from "./components/Card/card";
 import WatchList from "./components/WatchList/watchlist";
 import RegistrationPage from "./components/Registration/registration-page";
-import LoginForm from "./components/Login/login-form";
+import Login from "./components/Login/login";
 import SearchBox from "./components/Search-Box/search-box";
 import { refreshAuthToken } from "./actions/auth";
 
@@ -68,7 +68,7 @@ export class App extends Component {
           <Route exact path="/search" component={SearchBox} />
           <Route exact path="/movie/:movieId" component={Card} />
           <Route exact path="/watchlist" component={WatchList} />
-          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={RegistrationPage} />
         </div>
       </Router>
