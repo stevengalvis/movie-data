@@ -30,22 +30,11 @@ export class HeaderBar extends React.Component {
       );
     }
 
-    let loginButton = (
-      <button className="login-btn" onClick={() => <Redirect to="/login" />}>
-        Login
-      </button>
-    );
-
-    let registerButton = (
-      <button className="register-btn" onClick={() => (window.location = "/register")}>
-        Register
-      </button>
-    );
     return (
       <div className="header-bar">
         <ul className="header-bar-container">
-          <li>{!logOutButton ? loginButton : logOutButton}</li>
-          <li>{!watchlistButton ? registerButton : watchlistButton}</li>
+          <li>{logOutButton}</li>
+          <li>{watchlistButton}</li>
         </ul>
       </div>
     );

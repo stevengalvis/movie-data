@@ -29,3 +29,10 @@
 .watchlist-btn:hover {
   color: #028090;
 }
+
+@media only screen and (max-width: 500px) {
+  .header-bar-container {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
