@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import Spinner from "react-spinkit";
-import { Link } from "react-router-dom";
 import { searchMovies, searchAnywhere } from "../../actions/search";
 import "./search-box.css";
 
