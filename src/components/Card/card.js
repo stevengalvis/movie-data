@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import Spinner from "react-spinkit";
 import UserScore from "../User-Score/user-score";
 import BarChart from "../Chart/barchart";

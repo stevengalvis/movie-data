@@ -6,11 +6,9 @@ import HeaderBar from "./components/Header-Bar/header-bar";
 import LandingPage from "./components/Landing-Page/landing-page";
 import Card from "./components/Card/card";
 import WatchList from "./components/WatchList/watchlist";
-import Register from "./components/Registration/registration-form";
 import RegistrationPage from "./components/Registration/registration-page";
 import LoginForm from "./components/Login/login-form";
 import SearchBox from "./components/Search-Box/search-box";
-import Suggestions from "./components/AutoSuggest/autosuggest";
 import { refreshAuthToken } from "./actions/auth";
 
 export class App extends Component {

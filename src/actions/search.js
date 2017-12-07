@@ -18,11 +18,6 @@ export const updateMovieTitles = titles => ({
   titles
 });
 
-export const CLEAR_SEARCH_TITLES = "CLEAR_SEARCH_TITLES";
-export const clearSearchTitles = () => ({
-  type: CLEAR_SEARCH_TITLES
-});
-
 export const SEARCH_ANYWHERE = "SEARCH_ANYWHERE";
 export const searchAnywhere = movieId => ({
   type: SEARCH_ANYWHERE,
@@ -37,8 +32,4 @@ export const searchMovies = query => dispatch => {
       dispatch(searchMoviesSuccess(movies.slice(0, 5)));
     })
     .catch(error => dispatch(searchMoviesError(error)));
-};
-
-export const clearSearch = () => dispatch => {
-  return dispatch(clearSearchTitles());
 };

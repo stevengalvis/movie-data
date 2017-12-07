@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Autosuggest from "react-autosuggest";
-import { search } from "../../movies";
-import { loadMovies, clearSuggestions, updateInputValue, updateSuggestions } from "../../actions/autosuggest";
+import { loadMovies, clearSuggestions, updateInputValue } from "../../actions/autosuggest";
 
 export class Suggestions extends React.Component {
   constructor() {

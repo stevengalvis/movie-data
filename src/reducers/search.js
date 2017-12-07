@@ -1,10 +1,4 @@
-import {
-  SEARCH_MOVIES_SUCCESS,
-  SEARCH_MOVIES_ERROR,
-  UPDATE_MOVIE_TITLES,
-  CLEAR_SEARCH_TITLES,
-  SEARCH_ANYWHERE
-} from "../actions/search";
+import { SEARCH_MOVIES_SUCCESS, SEARCH_MOVIES_ERROR, UPDATE_MOVIE_TITLES, SEARCH_ANYWHERE } from "../actions/search";
 
 const initialState = {
   movies: [],

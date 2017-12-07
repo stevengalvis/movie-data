@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import LoginForm from "../Login/login-form";
 import "./landing-page.css";
 import backdrop from "../../avengers-backdrop.jpg";
 import SimilarMoviesChart from "../../similar-movies-chart.png";
