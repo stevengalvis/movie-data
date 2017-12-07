@@ -5,6 +5,7 @@
   "dependencies": {
     "chart.js": "^2.7.1",
     "jwt-decode": "^2.2.0",
+    "raf": "^3.4.0",
     "react": "^16.0.0",
     "react-autosuggest": "^9.3.2",
     "react-chartjs-2": "^2.6.4",
