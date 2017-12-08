@@ -7,8 +7,10 @@
 
 <h2>Features</h2>
 <p>Main features of the app are the charts and user scores for each movie. Users can compare similar movie averages in a horizontal chart based on keywords and genres from The Movie DB.</p>
+<img src="src/similar-movies-chart.png">
 
 <p>Users can also see the revenue and budget per movie in a bar chart to see how the movie performed in the box office.</p>
+<img src="src/movie-numbers.png">
 
 <h2> Tech/framework used </h2>
 <h3>Front End</h3>
