@@ -1,6 +1,6 @@
 <h1>Movie Data</h1>
 <p><a href="https://arbitrator-hamster-48873.netlify.com/">Movie Data</a> is a responsive full stack app that allows users to search for movies and analyze fun movie data. </p>
-<img src="/card-component.png" >
+<img src="card-component.png">
 
 <h2>Motivation</h2>
 <p>The main focus of the app is to allow users to search for movies and see the data clearly. Users can also add a movie to their watchlist to keep track of must see movies.</p>
