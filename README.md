@@ -1,13 +1,14 @@
 <h1>Movie Data</h1>
 <p><a href="https://arbitrator-hamster-48873.netlify.com/">Movie Data</a> is a responsive full stack app that allows users to search for movies and analyze fun movie data. </p>
+<img src="card-component.png" >
 
 <h2>Motivation</h2>
-<p>The main focus of the app is to allow users to search for movies and see the data in clearly. Users can also add a movie to their watchlist to keep track of movies they are interested in seeing.</p>
+<p>The main focus of the app is to allow users to search for movies and see the data clearly. Users can also add a movie to their watchlist to keep track of must see movies.</p>
 
 <h2>Features</h2>
 <p>Main features of the app are the charts and user scores for each movie. Users can compare similar movie averages in a horizontal chart based on keywords and genres from The Movie DB.</p>
 
-<p>Users can also see the revenue and budget per movie in a bar chart to see how the movie performed in the box office</p>
+<p>Users can also see the revenue and budget per movie in a bar chart to see how the movie performed in the box office.</p>
 
 <h2> Tech/framework used </h2>
 <h3>Front End</h3>
