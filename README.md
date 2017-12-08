@@ -11,6 +11,7 @@
 
 <p>Users can also see the revenue and budget per movie in a bar chart to see how the movie performed in the box office.</p>
 <img src="src/movie-numbers.png">
+<img src="src/user-score-img.png">
 
 <h2> Tech/framework used </h2>
 <h3>Front End</h3>
