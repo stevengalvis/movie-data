@@ -35,7 +35,6 @@ export const addToWatchlist = movie => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then(watchlist => {
-      console.log(watchlist);
       return watchlist;
     })
     .catch(err => {
