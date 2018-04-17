@@ -1,5 +1,5 @@
 <h1>Movie Data</h1>
-<p><a href="https://arbitrator-hamster-48873.netlify.com/">Movie Data</a> is a responsive full stack app that allows users to search for movies and analyze fun movie data. </p>
+<p><a href="https://www.moviedata.site/">Movie Data</a> is a responsive full stack app that allows users to search for movies and analyze fun movie data. </p>
 <img src="src/card-component.png">
 
 <h2>Motivation</h2>
